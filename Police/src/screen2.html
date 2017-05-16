@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公安厅信息资源库</title>
+    <style type="text/css">
+        body {
+            background: url("../img/bg.png");
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            border: 0;
+            color: #2f2f2f;
+            blur: expression(this.onFocus=this.blur())
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #2f2f2f;
+            outline: none;
+        }
+
+        :focus {
+            outline: none;
+        }
+
+        img {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol, li, dl, dt, dd {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            width: 1920px;
+            height: 1080px;
+        }
+
+        #part1 {
+            width: 1900px;
+            height: 682px;
+            margin: 10px 0 0 10px;
+        }
+
+        .p1_1 {
+            width: 1370px;
+            height: 682px;
+            float: left;
+            margin: 0px 0 0 0;
+            color: #fff;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .p1_1 h1 {
+            margin: 15px 0 20px 15px;
+            width: 1300px;
+            float: left;
+            display: inline;
+            padding: 0 0 0 60px;
+            height: 40px;
+            line-height: 40px;
+            background: url("../img/topic_logo.png") no-repeat;
+            color: #f7da73;
+            font-size: 40px;
+            font-family: '黑体';
+        }
+
+        .p1_1 h1 span {
+            color: #27e48a;
+        }
+
+        #data_view {
+            float: left;
+            width: 525px;
+            height: 600px;
+            position: relative;
+        }
+
+        .date_detail {
+            position: absolute;
+        }
+
+        .date_detail h4 {
+            height: 32px;
+            line-height: 32px;
+            color: #fbae25;
+            margin: 0;
+            padding: 0;
+        }
+
+        .date_detail h4 span {
+            font-size: 18px;
+            color: #f1792d;
+        }
+
+        .date_detail h3 {
+            height: 32px;
+            line-height: 32px;
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .sjzl {
+            top: 30px;
+            right: 290px;
+            text-align: right;
+        }
+
+        .sjly {
+            top: 30px;
+            right: 50px;
+            text-align: right;
+        }
+
+        .jghsj {
+            top: 130px;
+            right: 290px;
+            text-align: right;
+        }
+
+        .fjghsj {
+            top: 130px;
+            right: 50px;
+            text-align: right;
+        }
+
+        .jrzzl {
+            top: 230px;
+            right: 290px;
+            text-align: right;
+        }
+
+        .zz_jghsj {
+            top: 330px;
+            right: 290px;
+            text-align: right;
+        }
+
+        .zz_fjghsj {
+            top: 330px;
+            right: 50px;
+            text-align: right;
+        }
+
+        #map_view {
+            float: right;
+            width: 825px;
+            height: 600px;
+        }
+
+        #map_star {
+            position: absolute;
+            top: 405px;
+            right: 440px;
+        }
+
+        .p1_2 {
+            width: 502px;
+            height: 682px;
+            float: right;
+            margin: 0px 0px 0 0px;
+            background: url('../img/p1_2_bg.png') no-repeat;
+        }
+
+        .p1_2 h2 {
+            width: 502px;
+            text-align: center;
+            font-family: '黑体';
+            font-size: 24px;
+            color: #a06329;
+        }
+
+        .p1_2 ul li {
+            width: 422px;
+            margin: 28px auto;
+            overflow: hidden;
+        }
+
+        .p1_2 ul li .res_type_tit {
+            float: left;
+            font-family: '黑体';
+            font-size: 14px;
+        }
+
+        .p1_2 ul li .res_type_count {
+            float: right;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .p1_2 ul li .res_load {
+            float: left;
+            width: 422px;
+            height: 14px;
+            background: url('../img/res_load_bg.png') no-repeat;
+        }
+
+        .progress-in {
+            background-attachment: scroll;
+            background-clip: border-box;
+            background-color: #a07202;
+            background-image: linear-gradient(to right, #a06329, #f8ca46);
+            background-origin: padding-box;
+            background-position: 0 0;
+            background-repeat: repeat;
+            background-size: auto auto;
+            border-radius: 7px;
+            box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+            display: block;
+            height: 12px;
+            margin: 1px 0 0 1px;
+            min-width: 8px;
+        }
+
+        #part2 {
+            width: 1900px;
+            height: 366px;
+            margin: 10px 0 0 10px;
+        }
+
+        .p2_1, .p2_2, .p2_3 {
+            width: 624px;
+            height: 367px;
+            /*background: #2b2420; border: 1px solid #49413d;opacity:0.5;*/
+            float: left;
+        }
+
+        .p2_1 {
+            background: url("../img/res_stype_bg.png") no-repeat;
+        }
+
+        .p2_1 h2 {
+            width: 624px;
+            text-align: center;
+            font-family: '黑体';
+            font-size: 24px;
+            color: #a06329;
+        }
+
+        .p2_1 ul li {
+            width: 550px;
+            margin: 32px auto;
+            overflow: hidden;
+        }
+
+        .p2_1 ul li .res_stype_tit {
+            width: 110px;
+            float: left;
+        }
+
+        .p2_1 ul li .res_stype_process {
+            float: left;
+            width: 360px;
+            height: 22px;
+        }
+
+        .p2_1 ul li .res_stype_process span {
+            display: block;
+            width: 360px;
+            height: 22px;
+            background: url("../img/res_stype_process.png") no-repeat;
+        }
+
+        .p2_1 ul li .res_stype_count {
+            float: right;
+        }
+
+        .p2_2 {
+            margin: 0 0 0 14px;
+            background: url("../img/gjzgxl_bg.png") no-repeat;
+        }
+
+        .p2_2 h2 {
+            width: 624px;
+            text-align: center;
+            font-family: '黑体';
+            font-size: 24px;
+            color: #a06329;
+            overflow: hidden;
+        }
+
+        .p2_2 table {
+            width: 550px;
+            margin: 40px auto 0;
+            overflow: hidden;
+        }
+
+        .p2_2 table th, .p2_2 table td {
+            text-align: center;
+            height: 38px;
+        }
+
+        .p2_2 table tr td {
+            color: #f8ca46;
+            font-size: 14px;
+        }
+
+        .p2_2 table .gjzgx_top td {
+            color: #984e21;
+            font-size: 14px;
+        }
+
+        .p2_3 {
+            margin: 0 0 0 14px;
+            background: url("../img/rzqs_bg.png") no-repeat;
+        }
+
+        .p2_3 h2 {
+            width: 624px;
+            text-align: center;
+            font-family: '黑体';
+            font-size: 24px;
+            color: #a06329;
+        }
+
+        #rizeng {
+            width: 570px;
+            height: 280px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="../js/jquery-1.9.0.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/guizhou.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="part1">
+        <div class="p1_1">
+            <h1>数据资源运行质态云图<span>--</span>数据汇聚</h1>
+            <div id="data_view">
+                <div class="sjzl date_detail">
+                    <h4>22.3 <span>TB</span></h4>
+                    <h3>数据总量</h3>
+                </div>
+                <div class="sjly date_detail">
+                    <h4>48 <span>个</span></h4>
+                    <h3>数据来源</h3>
+                </div>
+                <div class="jghsj date_detail">
+                    <h4>193.5 <span>亿条</span></h4>
+                    <h3>结构化数据</h3>
+                </div>
+                <div class="fjghsj date_detail">
+                    <h4>193.5 <span>亿条</span></h4>
+                    <h3>非结构化数据</h3>
+                </div>
+                <div class="jrzzl date_detail">
+                    <h4>26.2 <span>GB</span></h4>
+                    <h3>今日增长量</h3>
+                </div>
+                <div class="zz_jghsj date_detail">
+                    <h4>6154.8 <span>万条</span></h4>
+                    <h3>结构化数据</h3>
+                </div>
+                <div class="zz_fjghsj date_detail">
+                    <h4>23.4 <span>GB</span></h4>
+                    <h3>非结构化数据</h3>
+                </div>
+            </div>
+            <div id="map_view"></div>
+            <img id="map_star" src="images/star.png" height="12" width="12"/>
+        </div>
+        <div class="p1_2">
+            <h2>资源排名</h2>
+            <ul>
+                <li>
+                    <div><span class="res_type_tit">汽车租赁轨迹信息</span><span class="res_type_count">6,244,257,430</span>
+                    </div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:90%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">过车信息</span><span class="res_type_count">1,449,548,779</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:80%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">上网记录信息</span><span class="res_type_count">665,228,884</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:60%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">接处警车辆GPS定位表</span><span class="res_type_count">568,284,630</span>
+                    </div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:40%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">境内旅客住宿信息</span><span class="res_type_count">253,050,828</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:34%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">机动车违法记录信息</span><span class="res_type_count">79,976,624</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:30%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">常住人口信息</span><span class="res_type_count">50,028,366</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:24%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">实有人口信息</span><span class="res_type_count">48,730,359</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:18%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">实有房屋信息</span><span class="res_type_count">29,523,396</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:15%"></span>
+                    </div>
+                </li>
+                <li>
+                    <div><span class="res_type_tit">接处警信息</span><span class="res_type_count">21,381,501</span></div>
+                    <div class="res_load">
+                        <span class="progress-in" style="width:10%"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="part2">
+        <div class="p2_1">
+            <h2>资源细类</h2>
+            <ul>
+                <li><span class="res_stype_tit">公安业务数据</span>
+                    <div class="res_stype_process"><span style="width:100%"></span></div>
+                    <span class="res_stype_count">154.4亿条</span></li>
+                <li><span class="res_stype_tit">政府管理部门</span>
+                    <div class="res_stype_process"><span style="width:80%"></span></div>
+                    <span class="res_stype_count">154.4亿条</span></li>
+                <li><span class="res_stype_tit">公共机构数据</span>
+                    <div class="res_stype_process"><span style="width:40%"></span></div>
+                    <span class="res_stype_count">154.4亿条</span></li>
+                <li><span class="res_stype_tit">社会数据</span>
+                    <div class="res_stype_process"><span style="width:20%"></span></div>
+                    <span class="res_stype_count">154.4亿条</span></li>
+                <li><span class="res_stype_tit">互联网+</span>
+                    <div class="res_stype_process"><span style="width:10%"></span></div>
+                    <span class="res_stype_count">154.4亿条</span></li>
+            </ul>
+        </div>
+        <div class="p2_2">
+            <h2>各警种贡献率Top5</h2>
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>警种名称</th>
+                    <th>贡献率</th>
+                </tr>
+                <tr class="gjzgx_top">
+                    <td>贵州省公安厅刑事侦查总队</td>
+                    <td>43.34%</td>
+                </tr>
+                <tr class="gjzgx_top">
+                    <td>贵州省公安厅科技信息通信处</td>
+                    <td>23.90%</td>
+                </tr>
+                <tr class="gjzgx_top">
+                    <td>贵州省公安厅治安警察总队</td>
+                    <td>14.36%</td>
+                </tr>
+                <tr>
+                    <td>贵州省公安厅网络安全保卫总队</td>
+                    <td>10.90%</td>
+                </tr>
+                <tr>
+                    <td>贵州省公安厅情报信息处</td>
+                    <td>2.67%</td>
+                </tr>
+            </table>
+        </div>
+        <div class="p2_3">
+            <h2>资源汇聚日增趋势图</h2>
+            <div id="rizeng">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var mapChart = echarts.init(document.getElementById('map_view'));
+        mapChart.setOption({
+            tooltip: {},
+            dataRange: {
+                x: 'right',
+                y: 'bottom',
+                splitList: [
+                    {start: 100000000},
+                    {start: 500000000, end: 1000000000},
+                    {start: 100000000, end: 500000000},
+                    {start: 50000000, end: 100000000},
+                    {start: 10000000, end: 50000000, label: '10 到 200（自定义label）'},
+                    {start: 1000000, end: 10000000, label: '5（自定义特殊颜色）'},
+                    {end: 1000000}
+                ],
+                color: ['#E0022B', '#E09107', '#A3E00B']
+            },
+            series: [{
+                name: '数据量',
+                type: 'map',
+                map: '贵州',
+                layoutCenter: ['45%', '50%'],
+                // 如果宽高比大于 1 则宽度为 100，如果小于 1 则高度为 100，保证了不超过 100x100 的区域
+                layoutSize: 580,
+                itemStyle: {
+                    normal: {
+                        borderWidth: 1,
+                        borderColor: '#5d4926',
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: '#cd6b2a'
+                            }
+                        },
+                        textColor: 'red',
+                        areaColor: 'rgba(0,0,0,0)'
+                    },
+                    emphasis: {
+                        label: {show: true},
+                        borderColor: '#ff6500',
+                        areaColor: 'rgba(0,0,0,0)',
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: '#cd6b2a'
+                            }
+                        },
+                    }
+                },
+                data: [
+                    {name: '贵阳市', value: 75730270},
+                    {name: '安顺市', value: 20121398},
+                    {name: '黔南州', value: 360669234},
+                    {name: '黔东南州', value: 23636850},
+                    {name: '黔西南州', value: 9181533},
+                    {name: '六盘水市', value: 7033483},
+                    {name: '毕节市', value: 77823679},
+                    {name: '遵义市', value: 578151114},
+                    {name: '铜仁市', value: 5934168}
+                ]
+            }]
+        });
+
+        var rizengChart = echarts.init(document.getElementById('rizeng'));
+        rizengOption = {
+            title: {
+                text: '',
+                subtext: '(万条)',
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 16,
+                    color: '#F1F1F3'
+                },
+                left: '6%'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            calculable: true,
+            grid: {
+                show: true,
+                left: '3%',
+                right: '4%',
+                bottom: '10%',
+                containLabel: true,
+                borderWidth: 0,
+                borderColor: '#000',
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            width: 4,
+                            color: '#F1792D'
+                        }
+                    },
+                    data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'],
+                    axisLabel: {
+                        interval: 1,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 16,
+                            fontFamily: '黑体'
+                        }
+                    }
+                }
+
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            width: 4,
+                            color: '#F1792D'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 16,
+                            fontFamily: '黑体'
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '日增',
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'circle',
+                    symbolSize: 5,
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            width: 1,
+                            color: '#d8a83f'
+                        }
+                    },
+                    itemStyle: {normal: {areaStyle: {type: 'default', color: '#1e3e2a'}}},
+                    data: [6050, 4300, 3900, 3000, 2400, 2100, 1900, 1000, 950, 2100, 2000, 3500, 4800, 3900, 6000, 7900, 9300, 7400, 8600, 9200, 9800]
+                }
+            ]
+        };
+        rizengChart.setOption(rizengOption, true);
+    })
+</script>
+</body>
+</html>
