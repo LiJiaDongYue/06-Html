@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <style type="text/css">
+        body{ background: url(bgv1.2_2.jpg) no-repeat;}
+        #SystemCount{width:350px; height: 410px; margin: 20px 0 0 -40px; float: left;}
+        #SystemDetail{width:400px; height: 390px; margin: 20px 0 0 0; float: left;}
+        #ZZT3D{width:500px; height: 400px; margin: 20px;position: absolute; top: 0px; left:700px;}
+        #ZZT3D1{width:500px; height: 400px; margin: 20px;position: absolute; top: 270px; left:700px;}
+    </style>
+    <script src="js/highcharts.js"></script>
+    <script src="js/highcharts-3d.js"></script>
+    <!--联动图样式-->
+    <style type="text/css">
+        #dashboard path {  stroke: #fff; }
+        #dashboard path:hover {  opacity:0.9; }
+        #dashboard rect:hover {  fill:blue; }
+        #dashboard .axis {  font: 10px sans-serif; }
+        #dashboard .legend tr{    border-bottom:1px solid grey; }
+        #dashboard .legend tr:first-child{    border-top:1px solid grey; }
+
+        #dashboard .axis path,
+        #dashboard .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        #dashboard .x.axis path {  display: none; }
+        #dashboard .legend{
+            margin-bottom:76px;
+            display:inline-block;
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+        #dashboard .legend td{
+            padding:4px 5px;
+            vertical-align:bottom;
+        }
+        #dashboard .legendFreq, #dashboard .legendPerc{
+            align:right;
+            width:50px;
+        }
+    </style>
+
+</head>
+<body>
+<!--半环-->
+<div id="SystemCount"></div>
+<script type="text/javascript">
+    var myChart1 = echarts.init(document.getElementById('SystemCount'));
+    var dataStyle = {
+        normal: {
+            label: {show:false},
+            labelLine: {show:false}
+        }
+    };
+    var placeHolderStyle = {
+        normal : {
+            color: 'rgba(0,0,0,0)',
+            label: {show:false},
+            labelLine: {show:false}
+        },
+        emphasis : {
+            color: 'rgba(0,0,0,0)'
+        }
+    };
+    option = {
+        title: {
+            text: '系统总数：170',
+            x: '180',
+            y: '220',
+            itemGap: 20,
+            textStyle : {
+                color : '#fff',
+                fontFamily : '微软雅黑',
+                fontSize : 18,
+                fontWeight : 'bolder'
+            }
+        },
+        tooltip : {
+            show: true,
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : document.getElementById('SystemCount').offsetWidth / 2,
+            y : 105,
+            itemGap:12,
+            textStyle: {
+                color: '#fff'
+            },
+            data:['64.12% 未上报:109个','35.88% 已上报:61个','25.88% 已汇聚:44个','10.00% 未汇聚:17个']
+        },
+//            toolbox: {
+//                show : true,
+//                feature : {
+//                    mark : {show: true},
+//                    dataView : {show: true, readOnly: false},
+//                    restore : {show: true},
+//                    saveAsImage : {show: true}
+//                }
+//            },
+        series : [
+            {
+                name:'未上报',
+                type:'pie',
+                clockWise:false,
+                radius : [70, 95],
+                itemStyle : dataStyle,
+                data:[
+                    {
+                        value:64.12,
+                        name:'64.12% 未上报:109个'
+                    },
+                    {
+                        value:35.88,
+                        name:'invisible',
+                        itemStyle : placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name:'已上报',
+                type:'pie',
+                clockWise:false,
+                radius : [45, 70],
+                itemStyle : dataStyle,
+                data:[
+                    {
+                        value:35.88,
+                        name:'35.88% 已上报:61个'
+                    },
+                    {
+                        value:64.12,
+                        name:'invisible',
+                        itemStyle : placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name:'已汇聚',
+                type:'pie',
+                clockWise:false,
+                radius : [20, 45],
+                itemStyle : dataStyle,
+                data:[
+                    {
+                        value:25.88,
+                        name:'25.88% 已汇聚:44个'
+                    },
+                    {
+                        value:74.12,
+                        name:'invisible',
+                        itemStyle : placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name:'未汇聚',
+                type:'pie',
+                clockWise:false,
+                radius : [-5, 20],
+                itemStyle : dataStyle,
+                data:[
+                    {
+                        value:10.00,
+                        name:'10.00% 未汇聚:17个'
+                    },
+                    {
+                        value:90.00,
+                        name:'invisible',
+                        itemStyle : placeHolderStyle
+                    }
+                ]
+            }
+        ]
+    };
+
+    myChart1.setOption(option,true);
+</script>
+
+<!--圆环-->
+<div id="SystemDetail"></div>
+<script type="text/javascript">
+    var myChart2 = echarts.init(document.getElementById('SystemDetail'));
+    //app.title = '嵌套环形图';
+
+    option2 = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+//            legend: {
+//                orient: 'vertical',
+//                x: 'right',
+//                y: '80',
+//                textStyle: {
+//                    color: '#fff'
+//                },
+//                data:['省厅','贵阳','遵义','安顺','黔东南','黔西南','黔南','毕节','铜仁','六盘水']
+//            },
+        series: [
+            {
+                name:'数据来源',
+                type:'pie',
+                selectedMode: 'single',
+                radius: [0, '20%'],
+
+                label: {
+                    normal: {
+                        position: 'inner'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:9172280785, name:'警种', selected:true},
+                    {value:6114853856, name:'地州'}
+                ]
+            },
+            {
+                name:'数据来源',
+                type:'pie',
+                radius: ['30%', '45%'],
+
+                data:[
+                    {value:1774733449, name:'省厅'},
+                    {value:2353472852, name:'贵阳'},
+                    {value:1400793276, name:'遵义'},
+                    {value:1066117662, name:'安顺'},
+                    {value:1797649239, name:'黔东南'},
+                    {value:1503057820, name:'黔西南'},
+                    {value:1574077453, name:'黔南'},
+                    {value:1500721800, name:'毕节'},
+                    {value:956131123, name:'铜仁'},
+                    {value:1360379967, name:'六盘水'}
+                ]
+            }
+        ]
+    };
+
+    myChart2.setOption(option2,true);
+</script>
+
+<!--3D柱状图-->
+<div id="ZZT3D"></div>
+<script type="text/javascript">
+    $(function () {
+        $('#ZZT3D').highcharts({
+            chart: {
+                type: 'column',
+                margin: 75,
+                backgroundColor: 'rgba(0,0,0,0)',
+                options3d: {
+                    enabled: true,
+                    alpha: 10,
+                    beta: 25,
+                    depth: 70
+                }
+            },
+            title: {
+//                    text: '警种排名前三'
+                text: ' '
+            },
+            plotOptions: {
+                column: {
+                    depth: 25
+                }
+            },
+            xAxis: {
+                categories: ['省厅','贵阳','黔南']
+            },
+            yAxis: {
+                title: {
+                    text: null
+                }
+            },
+            series: [{
+                showInLegend: false,
+                name: '数据量',
+                data: [1774733449,1395828299,1013833698]
+            }]
+        });
+    });
+</script>
+
+<!--3D柱状图1-->
+<div id="ZZT3D1"></div>
+<script type="text/javascript">
+    $(function () {
+        $('#ZZT3D1').highcharts({
+            chart: {
+                type: 'column',
+                margin: 75,
+                backgroundColor: 'rgba(0,0,0,0)',
+                options3d: {
+                    enabled: true,
+                    alpha: 10,
+                    beta: 25,
+                    depth: 70
+                }
+            },
+            title: {
+//                    text: '地州排名前三'
+                text: ' '
+            },
+            plotOptions: {
+                column: {
+                    depth: 25
+                }
+            },
+            xAxis: {
+                categories: ['贵阳','黔东南','遵义']
+            },
+            yAxis: {
+                title: {
+                    text: null
+                }
+            },
+            series: [{
+                showInLegend: false,
+                name: '数据量',
+                data: [957644553,794883347,710325447]
+            }]
+        });
+    });
+</script>
+
+<!--&lt;!&ndash;联动图&ndash;&gt;-->
+<!--<div id='dashboard'></div>-->
+<!--<script>-->
+<!--function dashboard(id, fData){-->
+<!--var barColor = 'steelblue';-->
+<!--function segColor(c){ return {民航:"#807dba", 旅店:"#e08214",网吧:"#41ab5d",高开司:"#4488cc",火车:"#c10000",客运站:"#738212"}[c]; }-->
+
+<!--// compute total for each state.-->
+<!--fData.forEach(function(d){d.total=d.freq.民航+d.freq.旅店+d.freq.网吧+d.freq.高开司+d.freq.火车+d.freq.客运站;});-->
+
+<!--// function to handle histogram.-->
+<!--function histoGram(fD){-->
+<!--var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};-->
+<!--hGDim.w = 200 - hGDim.l - hGDim.r,-->
+<!--hGDim.h = 400 - hGDim.t - hGDim.b;-->
+
+<!--//create svg for histogram.-->
+<!--var hGsvg = d3.select(id).append("svg")-->
+<!--.attr("width", hGDim.w + hGDim.l + hGDim.r)-->
+<!--.attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")-->
+<!--.attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");-->
+
+<!--// create function for x-axis mapping.-->
+<!--var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)-->
+<!--.domain(fD.map(function(d) { return d[0]; }));-->
+
+<!--// Add x-axis to the histogram svg.-->
+<!--hGsvg.append("g").attr("class", "x axis")-->
+<!--.attr("transform", "translate(0," + hGDim.h + ")")-->
+<!--.call(d3.svg.axis().scale(x).orient("bottom"));-->
+
+<!--// Create function for y-axis map.-->
+<!--var y = d3.scale.linear().range([hGDim.h, 0])-->
+<!--.domain([0, d3.max(fD, function(d) { return d[1]; })]);-->
+
+<!--// Create bars for histogram to contain rectangles and freq labels.-->
+<!--var bars = hGsvg.selectAll(".bar").data(fD).enter()-->
+<!--.append("g").attr("class", "bar");-->
+
+<!--//create the rectangles.-->
+<!--bars.append("rect")-->
+<!--.attr("x", function(d) { return x(d[0]); })-->
+<!--.attr("y", function(d) { return y(d[1]); })-->
+<!--.attr("width", x.rangeBand())-->
+<!--.attr("height", function(d) { return hGDim.h - y(d[1]); })-->
+<!--.attr('fill',barColor)-->
+<!--.on("mouseover",mouseover)// mouseover is defined below.-->
+<!--.on("mouseout",mouseout);// mouseout is defined below.-->
+
+<!--//Create the frequency labels above the rectangles.-->
+<!--bars.append("text").text(function(d){ return d3.format(",")(d[1])})-->
+<!--.attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })-->
+<!--.attr("y", function(d) { return y(d[1])-5; })-->
+<!--.attr("text-anchor", "middle");-->
+
+<!--function mouseover(d){  // utility function to be called on mouseover.-->
+<!--// filter for selected state.-->
+<!--var st = fData.filter(function(s){ return s.State == d[0];})[0],-->
+<!--nD = d3.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});-->
+
+<!--// call update functions of pie-chart and legend.-->
+<!--pC.update(nD);-->
+<!--leg.update(nD);-->
+<!--}-->
+
+<!--function mouseout(d){    // utility function to be called on mouseout.-->
+<!--// reset the pie-chart and legend.-->
+<!--pC.update(tF);-->
+<!--leg.update(tF);-->
+<!--}-->
+
+<!--// create function to update the bars. This will be used by pie-chart.-->
+<!--hG.update = function(nD, color){-->
+<!--// update the domain of the y-axis map to reflect change in frequencies.-->
+<!--y.domain([0, d3.max(nD, function(d) { return d[1]; })]);-->
+
+<!--// Attach the new data to the bars.-->
+<!--var bars = hGsvg.selectAll(".bar").data(nD);-->
+
+<!--// transition the height and color of rectangles.-->
+<!--bars.select("rect").transition().duration(500)-->
+<!--.attr("y", function(d) {return y(d[1]); })-->
+<!--.attr("height", function(d) { return hGDim.h - y(d[1]); })-->
+<!--.attr("fill", color);-->
+
+<!--// transition the frequency labels location and change value.-->
+<!--bars.select("text").transition().duration(500)-->
+<!--.text(function(d){ return d3.format(",")(d[1])})-->
+<!--.attr("y", function(d) {return y(d[1])-5; });-->
+<!--}-->
+<!--return hG;-->
+<!--}-->
+
+<!--// function to handle pieChart.-->
+<!--function pieChart(pD){-->
+<!--var pC ={},    pieDim ={w:250, h: 250};-->
+<!--pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;-->
+
+<!--// create svg for pie chart.-->
+<!--var piesvg = d3.select(id).append("svg")-->
+<!--.attr("width", pieDim.w).attr("height", pieDim.h).append("g")-->
+<!--.attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");-->
+
+<!--// create function to draw the arcs of the pie slices.-->
+<!--var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);-->
+
+<!--// create a function to compute the pie slice angles.-->
+<!--var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; });-->
+
+<!--// Draw the pie slices.-->
+<!--piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)-->
+<!--.each(function(d) { this._current = d; })-->
+<!--.style("fill", function(d) { return segColor(d.data.type); })-->
+<!--.on("mouseover",mouseover).on("mouseout",mouseout);-->
+
+<!--// create function to update pie-chart. This will be used by histogram.-->
+<!--pC.update = function(nD){-->
+<!--piesvg.selectAll("path").data(pie(nD)).transition().duration(500)-->
+<!--.attrTween("d", arcTween);-->
+<!--}-->
+<!--// Utility function to be called on mouseover a pie slice.-->
+<!--function mouseover(d){-->
+<!--// call the update function of histogram with new data.-->
+<!--hG.update(fData.map(function(v){-->
+<!--return [v.State,v.freq[d.data.type]];}),segColor(d.data.type));-->
+<!--}-->
+<!--//Utility function to be called on mouseout a pie slice.-->
+<!--function mouseout(d){-->
+<!--// call the update function of histogram with all data.-->
+<!--hG.update(fData.map(function(v){-->
+<!--return [v.State,v.total];}), barColor);-->
+<!--}-->
+<!--// Animating the pie-slice requiring a custom function which specifies-->
+<!--// how the intermediate paths should be drawn.-->
+<!--function arcTween(a) {-->
+<!--var i = d3.interpolate(this._current, a);-->
+<!--this._current = i(0);-->
+<!--return function(t) { return arc(i(t));    };-->
+<!--}-->
+<!--return pC;-->
+<!--}-->
+
+<!--// function to handle legend.-->
+<!--function legend(lD){-->
+<!--var leg = {};-->
+
+<!--// create table for legend.-->
+<!--var legend = d3.select(id).append("table").attr('class','legend');-->
+
+<!--// create one row per segment.-->
+<!--var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");-->
+
+<!--// create the first column for each segment.-->
+<!--tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")-->
+<!--.attr("width", '16').attr("height", '16')-->
+<!--.attr("fill",function(d){ return segColor(d.type); });-->
+
+<!--// create the second column for each segment.-->
+<!--tr.append("td").text(function(d){ return d.type;});-->
+
+<!--// create the third column for each segment.-->
+<!--tr.append("td").attr("class",'legendFreq')-->
+<!--.text(function(d){ return d3.format(",")(d.freq);});-->
+
+<!--// create the fourth column for each segment.-->
+<!--tr.append("td").attr("class",'legendPerc')-->
+<!--.text(function(d){ return getLegend(d,lD);});-->
+
+<!--// Utility function to be used to update the legend.-->
+<!--leg.update = function(nD){-->
+<!--// update the data attached to the row elements.-->
+<!--var l = legend.select("tbody").selectAll("tr").data(nD);-->
+
+<!--// update the frequencies.-->
+<!--l.select(".legendFreq").text(function(d){ return d3.format(",")(d.freq);});-->
+
+<!--// update the percentage column.-->
+<!--l.select(".legendPerc").text(function(d){ return getLegend(d,nD);});-->
+<!--}-->
+
+<!--function getLegend(d,aD){ // Utility function to compute percentage.-->
+<!--return d3.format("%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));-->
+<!--}-->
+
+<!--return leg;-->
+<!--}-->
+
+<!--// calculate total frequency by segment for all state.-->
+<!--var tF = ['民航','旅店','网吧','高开司','火车','客运站'].map(function(d){-->
+<!--return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};-->
+<!--});-->
+
+<!--// calculate total frequency by state for all segment.-->
+<!--var sF = fData.map(function(d){return [d.State,d.total];});-->
+
+<!--var hG = histoGram(sF), // create the histogram.-->
+<!--pC = pieChart(tF), // create the pie-chart.-->
+<!--leg= legend(tF);  // create the legend.-->
+<!--}-->
+<!--</script>-->
+
+<!--<script>-->
+<!--var freqData=[-->
+<!--{State:'一月',freq:{民航:53782, 旅店:93275, 网吧:105473,高开司:32463,火车:53243,客运站:62848}}-->
+<!--,{State:'二月',freq:{民航:68234, 旅店:103298, 网吧:121389,高开司:48348,火车:69834,客运站:72864}}-->
+<!--,{State:'三月',freq:{民航:48937, 旅店:82949, 网吧:103847,高开司:32974,火车:43477,客运站:53874}}-->
+<!--,{State:'四月',freq:{民航:40293, 旅店:74347, 网吧:104848,高开司:29384,火车:48347,客运站:50384}}-->
+<!--,{State:'五月',freq:{民航:43783, 旅店:71274, 网吧:103284,高开司:30283,火车:44713,客运站:52873}}-->
+<!--,{State:'六月',freq:{民航:43647, 旅店:73284, 网吧:112833,高开司:33247,火车:45473,客运站:52379}}-->
+<!--,{State:'七月',freq:{民航:54830, 旅店:89394, 网吧:132840,高开司:48492,火车:57289,客运站:63288}}-->
+<!--,{State:'八月',freq:{民航:62362, 旅店:93487, 网吧:147469,高开司:64839,火车:59738,客运站:71724}}-->
+<!--,{State:'九月',freq:{民航:68973, 旅店:104883, 网吧:152749,高开司:63927,火车:61732,客运站:86346}}-->
+<!--];-->
+
+<!--dashboard('#dashboard',freqData);-->
+<!--</script>    <!--&lt;!&ndash;联动图&ndash;&gt;-->
+<!--<div id='dashboard'></div>-->
+<!--<script>-->
+<!--function dashboard(id, fData){-->
+<!--var barColor = 'steelblue';-->
+<!--function segColor(c){ return {民航:"#807dba", 旅店:"#e08214",网吧:"#41ab5d",高开司:"#4488cc",火车:"#c10000",客运站:"#738212"}[c]; }-->
+
+<!--// compute total for each state.-->
+<!--fData.forEach(function(d){d.total=d.freq.民航+d.freq.旅店+d.freq.网吧+d.freq.高开司+d.freq.火车+d.freq.客运站;});-->
+
+<!--// function to handle histogram.-->
+<!--function histoGram(fD){-->
+<!--var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};-->
+<!--hGDim.w = 200 - hGDim.l - hGDim.r,-->
+<!--hGDim.h = 400 - hGDim.t - hGDim.b;-->
+
+<!--//create svg for histogram.-->
+<!--var hGsvg = d3.select(id).append("svg")-->
+<!--.attr("width", hGDim.w + hGDim.l + hGDim.r)-->
+<!--.attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")-->
+<!--.attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");-->
+
+<!--// create function for x-axis mapping.-->
+<!--var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)-->
+<!--.domain(fD.map(function(d) { return d[0]; }));-->
+
+<!--// Add x-axis to the histogram svg.-->
+<!--hGsvg.append("g").attr("class", "x axis")-->
+<!--.attr("transform", "translate(0," + hGDim.h + ")")-->
+<!--.call(d3.svg.axis().scale(x).orient("bottom"));-->
+
+<!--// Create function for y-axis map.-->
+<!--var y = d3.scale.linear().range([hGDim.h, 0])-->
+<!--.domain([0, d3.max(fD, function(d) { return d[1]; })]);-->
+
+<!--// Create bars for histogram to contain rectangles and freq labels.-->
+<!--var bars = hGsvg.selectAll(".bar").data(fD).enter()-->
+<!--.append("g").attr("class", "bar");-->
+
+<!--//create the rectangles.-->
+<!--bars.append("rect")-->
+<!--.attr("x", function(d) { return x(d[0]); })-->
+<!--.attr("y", function(d) { return y(d[1]); })-->
+<!--.attr("width", x.rangeBand())-->
+<!--.attr("height", function(d) { return hGDim.h - y(d[1]); })-->
+<!--.attr('fill',barColor)-->
+<!--.on("mouseover",mouseover)// mouseover is defined below.-->
+<!--.on("mouseout",mouseout);// mouseout is defined below.-->
+
+<!--//Create the frequency labels above the rectangles.-->
+<!--bars.append("text").text(function(d){ return d3.format(",")(d[1])})-->
+<!--.attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })-->
+<!--.attr("y", function(d) { return y(d[1])-5; })-->
+<!--.attr("text-anchor", "middle");-->
+
+<!--function mouseover(d){  // utility function to be called on mouseover.-->
+<!--// filter for selected state.-->
+<!--var st = fData.filter(function(s){ return s.State == d[0];})[0],-->
+<!--nD = d3.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});-->
+
+<!--// call update functions of pie-chart and legend.-->
+<!--pC.update(nD);-->
+<!--leg.update(nD);-->
+<!--}-->
+
+<!--function mouseout(d){    // utility function to be called on mouseout.-->
+<!--// reset the pie-chart and legend.-->
+<!--pC.update(tF);-->
+<!--leg.update(tF);-->
+<!--}-->
+
+<!--// create function to update the bars. This will be used by pie-chart.-->
+<!--hG.update = function(nD, color){-->
+<!--// update the domain of the y-axis map to reflect change in frequencies.-->
+<!--y.domain([0, d3.max(nD, function(d) { return d[1]; })]);-->
+
+<!--// Attach the new data to the bars.-->
+<!--var bars = hGsvg.selectAll(".bar").data(nD);-->
+
+<!--// transition the height and color of rectangles.-->
+<!--bars.select("rect").transition().duration(500)-->
+<!--.attr("y", function(d) {return y(d[1]); })-->
+<!--.attr("height", function(d) { return hGDim.h - y(d[1]); })-->
+<!--.attr("fill", color);-->
+
+<!--// transition the frequency labels location and change value.-->
+<!--bars.select("text").transition().duration(500)-->
+<!--.text(function(d){ return d3.format(",")(d[1])})-->
+<!--.attr("y", function(d) {return y(d[1])-5; });-->
+<!--}-->
+<!--return hG;-->
+<!--}-->
+
+<!--// function to handle pieChart.-->
+<!--function pieChart(pD){-->
+<!--var pC ={},    pieDim ={w:250, h: 250};-->
+<!--pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;-->
+
+<!--// create svg for pie chart.-->
+<!--var piesvg = d3.select(id).append("svg")-->
+<!--.attr("width", pieDim.w).attr("height", pieDim.h).append("g")-->
+<!--.attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");-->
+
+<!--// create function to draw the arcs of the pie slices.-->
+<!--var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);-->
+
+<!--// create a function to compute the pie slice angles.-->
+<!--var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; });-->
+
+<!--// Draw the pie slices.-->
+<!--piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)-->
+<!--.each(function(d) { this._current = d; })-->
+<!--.style("fill", function(d) { return segColor(d.data.type); })-->
+<!--.on("mouseover",mouseover).on("mouseout",mouseout);-->
+
+<!--// create function to update pie-chart. This will be used by histogram.-->
+<!--pC.update = function(nD){-->
+<!--piesvg.selectAll("path").data(pie(nD)).transition().duration(500)-->
+<!--.attrTween("d", arcTween);-->
+<!--}-->
+<!--// Utility function to be called on mouseover a pie slice.-->
+<!--function mouseover(d){-->
+<!--// call the update function of histogram with new data.-->
+<!--hG.update(fData.map(function(v){-->
+<!--return [v.State,v.freq[d.data.type]];}),segColor(d.data.type));-->
+<!--}-->
+<!--//Utility function to be called on mouseout a pie slice.-->
+<!--function mouseout(d){-->
+<!--// call the update function of histogram with all data.-->
+<!--hG.update(fData.map(function(v){-->
+<!--return [v.State,v.total];}), barColor);-->
+<!--}-->
+<!--// Animating the pie-slice requiring a custom function which specifies-->
+<!--// how the intermediate paths should be drawn.-->
+<!--function arcTween(a) {-->
+<!--var i = d3.interpolate(this._current, a);-->
+<!--this._current = i(0);-->
+<!--return function(t) { return arc(i(t));    };-->
+<!--}-->
+<!--return pC;-->
+<!--}-->
+
+<!--// function to handle legend.-->
+<!--function legend(lD){-->
+<!--var leg = {};-->
+
+<!--// create table for legend.-->
+<!--var legend = d3.select(id).append("table").attr('class','legend');-->
+
+<!--// create one row per segment.-->
+<!--var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");-->
+
+<!--// create the first column for each segment.-->
+<!--tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")-->
+<!--.attr("width", '16').attr("height", '16')-->
+<!--.attr("fill",function(d){ return segColor(d.type); });-->
+
+<!--// create the second column for each segment.-->
+<!--tr.append("td").text(function(d){ return d.type;});-->
+
+<!--// create the third column for each segment.-->
+<!--tr.append("td").attr("class",'legendFreq')-->
+<!--.text(function(d){ return d3.format(",")(d.freq);});-->
+
+<!--// create the fourth column for each segment.-->
+<!--tr.append("td").attr("class",'legendPerc')-->
+<!--.text(function(d){ return getLegend(d,lD);});-->
+
+<!--// Utility function to be used to update the legend.-->
+<!--leg.update = function(nD){-->
+<!--// update the data attached to the row elements.-->
+<!--var l = legend.select("tbody").selectAll("tr").data(nD);-->
+
+<!--// update the frequencies.-->
+<!--l.select(".legendFreq").text(function(d){ return d3.format(",")(d.freq);});-->
+
+<!--// update the percentage column.-->
+<!--l.select(".legendPerc").text(function(d){ return getLegend(d,nD);});-->
+<!--}-->
+
+<!--function getLegend(d,aD){ // Utility function to compute percentage.-->
+<!--return d3.format("%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));-->
+<!--}-->
+
+<!--return leg;-->
+<!--}-->
+
+<!--// calculate total frequency by segment for all state.-->
+<!--var tF = ['民航','旅店','网吧','高开司','火车','客运站'].map(function(d){-->
+<!--return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};-->
+<!--});-->
+
+<!--// calculate total frequency by state for all segment.-->
+<!--var sF = fData.map(function(d){return [d.State,d.total];});-->
+
+<!--var hG = histoGram(sF), // create the histogram.-->
+<!--pC = pieChart(tF), // create the pie-chart.-->
+<!--leg= legend(tF);  // create the legend.-->
+<!--}-->
+<!--</script>-->
+
+<!--<script>-->
+<!--var freqData=[-->
+<!--{State:'一月',freq:{民航:53782, 旅店:93275, 网吧:105473,高开司:32463,火车:53243,客运站:62848}}-->
+<!--,{State:'二月',freq:{民航:68234, 旅店:103298, 网吧:121389,高开司:48348,火车:69834,客运站:72864}}-->
+<!--,{State:'三月',freq:{民航:48937, 旅店:82949, 网吧:103847,高开司:32974,火车:43477,客运站:53874}}-->
+<!--,{State:'四月',freq:{民航:40293, 旅店:74347, 网吧:104848,高开司:29384,火车:48347,客运站:50384}}-->
+<!--,{State:'五月',freq:{民航:43783, 旅店:71274, 网吧:103284,高开司:30283,火车:44713,客运站:52873}}-->
+<!--,{State:'六月',freq:{民航:43647, 旅店:73284, 网吧:112833,高开司:33247,火车:45473,客运站:52379}}-->
+<!--,{State:'七月',freq:{民航:54830, 旅店:89394, 网吧:132840,高开司:48492,火车:57289,客运站:63288}}-->
+<!--,{State:'八月',freq:{民航:62362, 旅店:93487, 网吧:147469,高开司:64839,火车:59738,客运站:71724}}-->
+<!--,{State:'九月',freq:{民航:68973, 旅店:104883, 网吧:152749,高开司:63927,火车:61732,客运站:86346}}-->
+<!--];-->
+
+<!--dashboard('#dashboard',freqData);-->
+<!--</script>-->
+</body>
+
+</html>

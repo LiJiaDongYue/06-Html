@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公安厅</title>
+    <script src="../js/jquery.min-1.12.2.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <!--<script src="js/echarts.min.js"></script>-->
+    <script src="../js/jquery.fly.js"></script>
+    <!--数字滚动-->
+    <script src="../js/countUp.js"></script>
+    <style type="text/css">
+        #d1, #d2, #d3, #d4, #d5, #d6, #d7, #d8, #d9 {
+            color: #fff;
+            font-family: '微软雅黑';
+            font-size: 14px;
+        }
+
+        #d1 {
+            width: 100px;
+            position: absolute;
+            top: 100px;
+            left: 750px;
+        }
+
+        #d2 {
+            width: 100px;
+            position: absolute;
+            top: 122px;
+            left: 770px;
+        }
+
+        #d3 {
+            width: 100px;
+            position: absolute;
+            top: 152px;
+            left: 770px;
+        }
+
+        #d4 {
+            width: 100px;
+            position: absolute;
+            top: 289px;
+            left: 860px;
+        }
+
+        #d5 {
+            width: 100px;
+            position: absolute;
+            top: 312px;
+            left: 870px;
+        }
+
+        #d6 {
+            width: 100px;
+            position: absolute;
+            top: 339px;
+            left: 870px;
+        }
+
+        #d7 {
+            width: 100px;
+            position: absolute;
+            top: 430px;
+            left: 520px;
+        }
+
+        #d8 {
+            width: 100px;
+            position: absolute;
+            top: 450px;
+            left: 530px;
+        }
+
+        #d9 {
+            width: 100px;
+            position: absolute;
+            top: 478px;
+            left: 530px;
+        }
+
+        #f1, #f2, #f3, #f4, #f5, #f6, #f7, #f8, #f9 {
+            color: #fff;
+            font-family: '微软雅黑';
+            font-size: 14px;
+        }
+
+        #f1 {
+            width: 100px;
+            position: absolute;
+            top: 586px;
+            left: 1192px;
+        }
+
+        #f2 {
+            width: 100px;
+            position: absolute;
+            top: 620px;
+            left: 1036px;
+        }
+
+        #f3 {
+            width: 100px;
+            position: absolute;
+            top: 655px;
+            left: 1036px;
+        }
+
+        #f4 {
+            width: 100px;
+            position: absolute;
+            top: 690px;
+            left: 1036px;
+        }
+
+        #f5 {
+            width: 100px;
+            position: absolute;
+            top: 723px;
+            left: 1036px;
+        }
+
+        #f6 {
+            width: 100px;
+            position: absolute;
+            top: 622px;
+            left: 1207px;
+        }
+
+        #f7 {
+            width: 100px;
+            position: absolute;
+            top: 654px;
+            left: 1242px;
+        }
+
+        #f8 {
+            width: 100px;
+            position: absolute;
+            top: 692px;
+            left: 1242px;
+        }
+
+        #f9 {
+            width: 100px;
+            position: absolute;
+            top: 723px;
+            left: 1242px;
+        }
+
+        #s1, #s2, #s3 {
+            color: #00ff00;
+            font-family: '微软雅黑';
+            font-size: 22px;
+        }
+
+        #s1 {
+            width: 100px;
+            position: absolute;
+            top: 200px;
+            left: 535px;
+        }
+
+        #s2 {
+            width: 100px;
+            position: absolute;
+            top: 420px;
+            left: 795px;
+        }
+
+        #s3 {
+            width: 100px;
+            position: absolute;
+            top: 550px;
+            left: 530px;
+        }
+
+        #h1, #h2, #h3 {
+            color: #fff;
+            font-family: '微软雅黑';
+        }
+
+        #h1 {
+            width: 100%;
+            position: absolute;
+            top: 500px;
+            left: 10px;
+        }
+
+        #h2 {
+            width: 100%;
+            position: absolute;
+            top: 500px;
+            left: 400px;
+        }
+
+        #h3 {
+            width: 100%;
+            position: absolute;
+            top: 250px;
+            left: 20px;
+        }
+
+        body {
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 100%;
+            height: 768px;
+            position: relative;
+        }
+
+        .main canvas {
+            width: 100%;
+            height: 768px /*默认全屏显示 可自己设置高度640px*/;
+            display: inline-block;
+            vertical-align: baseline;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .main .canvaszz { /*用来解决视频右键菜单，用于视频上面的遮罩层*/
+            width: 100%;
+            background-image: url(../img/page3bg.jpg);
+            height: 768px;
+            position: absolute;
+            z-index: 0;
+            filter: alpha(opacity=40);
+            -moz-opacity: 0.4;
+            -khtml-opacity: 0.4;
+            opacity: 0.7;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="main">
+    <div class="canvaszz"></div>
+    <canvas id="canvas">
+
+    </canvas>
+</div>
+<!--<div id="zzt2" style="width:380px; height:280px; position: absolute;top:120px;left:960px;"></div>-->
+<!--<div id="quxian" style="width:400px; height:240px; position: absolute;top:250px;left:990px;"></div>-->
+<div id="ybp1" style="width:300px; height:245px; position: absolute;top:20px;left:60px;"></div>
+<div id="ybp2" style="width:300px; height:245px; position: absolute;top:20px;left:1010px;"></div>
+<div id="hxt" style="width:650px; height:350px; position: absolute;top:330px;left:-90px;"></div>
+<!--<div id="pbt" style="width:600px; height:250px; position: absolute;top:550px;left:800px;"></div>-->
+<!--数值文字-->
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<div id="d4"></div>
+<div id="d5"></div>
+<div id="d6"></div>
+<div id="d7"></div>
+<div id="d8"></div>
+<div id="d9"></div>
+<!--服务数量-->
+<div id="f1"></div>
+<div id="f2"></div>
+<div id="f3"></div>
+<div id="f4"></div>
+<div id="f5"></div>
+<div id="f6"></div>
+<div id="f7"></div>
+<div id="f8"></div>
+<div id="f9"></div>
+
+<!--地球数据-->
+<div id="s1">161.89亿</div>
+<div id="s2">68.51亿</div>
+<div id="s3">17.30亿</div>
+
+<!--和弦图数据说明-->
+<div id="h1">
+    <h4>社会及互联网数据</h4>
+    <p>系统数(个):7</p>
+    <p>资源数(类):54</p>
+    <p>数据量(条):0.255亿</p>
+</div>
+<div id="h2">
+    <h4>公安内部数据</h4>
+    <p>系统数(个):53</p>
+    <p>资源数(类):161</p>
+    <p>数据量:111.03亿</p>
+</div>
+<div id="h3">
+    <h4>公安外部数据</h4>
+    <p>系统数(个):9</p>
+    <p>数据量(条):14.52亿</p>
+</div>
+
+<script type="text/javascript">
+    //    var quxian = echarts.init(document.getElementById('quxian'));
+    var ybp1 = echarts.init(document.getElementById('ybp1'));
+    //var myChart3 = echarts.init(document.getElementById('zzt2'));
+    var ybp2 = echarts.init(document.getElementById('ybp2'));
+    var hxt = echarts.init(document.getElementById('hxt'));
+    //    var pbt = echarts.init(document.getElementById('pbt'));
+    $(function () {
+
+        // 指定图表的配置项和数据
+        option_ybp1 = {
+            tooltip: {
+                formatter: "{a} <br/>{b} {c}%"
+            },
+            series: [
+                {
+                    // name: '汇聚率',
+                    type: 'gauge',
+                    min: 0,
+                    max: 100,
+                    splitNumber: 10,
+                    radius: '65%',
+                    axisLine: {            // 坐标轴线
+                        lineStyle: {       // 属性lineStyle控制线条样式
+                            color: [[0.09, 'lime'], [0.82, '#1e90ff'], [1, '#ff4500']],
+                            width: 3,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    axisLabel: {            // 坐标轴小标记
+                        textStyle: {       // 属性lineStyle控制线条样式
+                            fontWeight: 'bolder',
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    axisTick: {            // 坐标轴小标记
+                        length: 12,        // 属性length控制线长
+                        lineStyle: {       // 属性lineStyle控制线条样式
+                            color: 'auto',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    splitLine: {           // 分隔线
+                        length: 20,         // 属性length控制线长
+                        lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                            width: 3,
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    pointer: {
+                        width: 5,
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 5
+                    },
+                    title: {
+                        offsetCenter: [0, '75%'],       // x, y，单位px
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            fontWeight: 'bolder',
+                            fontStyle: 'italic',
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    detail: {
+                        //backgroundColor: 'rgba(30,144,255,0.8)',
+                        // borderWidth: 1,
+                        formatter: '{value}%',
+                        borderColor: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 5,
+                        width: 80,
+                        height: 30,
+                        offsetCenter: [5, 78],       // x, y，单位px
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            fontWeight: 'bolder',
+                            color: '#00ff00',
+                            fontSize: 18
+                        }
+                    },
+                    data: [{value: 100, name: '标准化率'}]
+                }
+            ]
+        };
+        option_ybp2 = {
+
+            tooltip: {
+                formatter: "{a} <br/>{b} {c}%"
+            },
+            series: [
+                {
+                    //name: '标准化率',
+                    type: 'gauge',
+                    min: 0,
+                    max: 300,
+                    splitNumber: 10,
+                    radius: '65%',
+                    axisLine: {            // 坐标轴线
+                        lineStyle: {       // 属性lineStyle控制线条样式
+                            color: [[0.09, 'lime'], [0.82, '#1e90ff'], [1, '#ff4500']],
+                            width: 3,
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    axisLabel: {            // 坐标轴小标记
+                        textStyle: {       // 属性lineStyle控制线条样式
+                            fontWeight: 'bolder',
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    axisTick: {            // 坐标轴小标记
+                        length: 12,        // 属性length控制线长
+                        lineStyle: {       // 属性lineStyle控制线条样式
+                            color: 'auto',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    splitLine: {           // 分隔线
+                        length: 20,         // 属性length控制线长
+                        lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                            width: 3,
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    pointer: {
+                        width: 5,
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 5
+                    },
+                    title: {
+                        offsetCenter: [0, '75%'],       // x, y，单位px
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            fontWeight: 'bolder',
+                            fontStyle: 'italic',
+                            color: '#fff',
+                            shadowColor: '#fff', //默认透明
+                            shadowBlur: 10
+                        }
+                    },
+                    detail: {
+                        //backgroundColor: 'rgba(30,144,255,0.8)',
+                        // borderWidth: 1,
+                        formatter: '{value}%',
+                        borderColor: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 5,
+                        width: 80,
+                        height: 30,
+                        offsetCenter: [5, 78],       // x, y，单位px
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            fontWeight: 'bolder',
+                            color: '#00ff00',//00ff00
+                            fontSize: 18
+                        }
+                    },
+                    data: [{value: 236.28, name: '服务率'}]
+                }
+            ]
+        };
+
+        //和弦图
+        option_hxt = {
+            tooltip: {
+                trigger: 'item',
+                formatter: function (params) {
+                    if (params.indicator2) {    // is edge
+                        return params.indicator2 + ' ' + params.name + ' ' + params.indicator;
+                    } else {    // is node
+                        return params.name
+                    }
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    //restore : {show: true},
+                    //magicType: {show: true, type: ['force', 'chord']},
+                    // saveAsImage : {show: true}
+                }
+            },
+            legend: {
+                // x:'0',
+                // y:'70',
+                show: false,
+                // orient: 'vertical',
+                // textStyle: {       // 属性lineStyle控制线条样式
+                //   color: '#fff',
+                //    lineStyle:{
+                //        color:'#fff'
+                //     }
+                //},
+                data: ['内部数据总量:111亿', '外部数据总量:14.5亿', '社会数据总量:0.255亿']
+            },
+            series: [
+                {
+                    type: 'force',
+                    sort: 'ascending',
+                    sortSub: 'descending',
+                    ribbonType: false,
+                    radius: '60%',
+                    gravity: 2,
+                    draggable: false,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                //show:true,
+                                rotate: true,
+                                textStyle: {       // 属性lineStyle控制线条样式
+                                    color: '#fff'
+                                }
+                            },
+                            nodeStyle: {
+                                //brushType : 'both',
+                                //borderColor : 'rgba(255,215,0,0.4)',
+                                // borderWidth : 1
+                            }
+                        }
+                    },
+                    minRadius: 10,
+                    maxRadius: 15,
+                    // 使用 nodes links 表达和弦图
+                    nodes: [
+                        {name: '内部数据总量:111亿', symbol: 'image://images/icon/earth1.png'},
+                        {name: '外部数据总量:14.5亿', symbol: 'image://images/icon/earth1.png'},
+                        {name: '社会数据总量:0.255亿', symbol: 'image://images/icon/earth1.png'},
+
+                        {name: '厅指挥中心(数据总量:40,504,771)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅经侦总队(数据总量:2,718,999)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅刑侦总队(数据总量:5,149,044,957)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅监所管理总队(数据总量:50,023,942)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅交通管理局(数据总量:115,255,257)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅出入境管理局(数据总量:8,699,760)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅情报信息处(数据总量:1,810,063,954)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅网安总队(数据总量:180,159,669)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '消防总队(数据总量:1,539,661)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅治安警察总队(数据总量:1,866,826,092)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅禁毒总队(数据总量:67,522,429)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '厅科技信息通讯处(数据总量:1,810,748,593)', symbol: 'image://images/icon/earth1.png'},
+
+                        {name: '贵州省司法厅(数据总量:394,402)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州省工商管理局(数据总量:1,225,543)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州省人力资源和社会保障厅(数据总量:85,767)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州省计生委(数据总量:12,704,769)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州省扶贫办(数据总量:7,445,015)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州省交通运输厅(数据总量:8,635,650)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '成都铁路局(数据总量:285,217,275)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '中国民航信息网络股份有限公司(数据总量:15,472,206)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '贵州高速公路开发总公司(数据总量:1,120,271,660)', symbol: 'image://images/icon/earth1.png'},
+
+                        {name: '贵阳市公安局(数据总量:502,716)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '遵义市公安局(数据总量:1,277,053)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '六盘水市公安局(数据总量:1,488,603)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '毕节市公安局(数据总量:14,337,545)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '安顺市公安局(数据总量:259,455)', symbol: 'image://images/icon/earth1.png'},
+                        {name: '黔南州公安局(数据总量:7,211,497)', symbol: 'image://images/icon/earth1.png'},
+                        //  {name:'黔东南州公安局(数据总量:0)',symbol: 'image://images/icon/earth1.png'},
+                        //  {name:'铜仁市公安局(数据总量:0)',symbol: 'image://images/icon/earth1.png'},
+                        //  {name:'黔西南州公安局(数据总量:0)',symbol: 'image://images/icon/earth1.png'},
+                        //  {name:'贵安新区(数据总量:0)',symbol: 'image://images/icon/earth1.png'}
+                    ],
+                    links: [
+                        {source: '内部数据总量:111亿', target: '厅指挥中心(数据总量:40,504,771)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅经侦总队(数据总量:2,718,999)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅刑侦总队(数据总量:5,149,044,957)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅监所管理总队(数据总量:50,023,942)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅交通管理局(数据总量:115,255,257)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅出入境管理局(数据总量:8,699,760)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅情报信息处(数据总量:1,810,063,954)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '厅网安总队(数据总量:180,159,669)', weight: 1, value: 12, name: '所属'},
+                        {source: '内部数据总量:111亿', target: '消防总队(数据总量:1,539,661)', weight: 1, value: 12, name: '所属'},
+                        {
+                            source: '内部数据总量:111亿',
+                            target: '厅治安警察总队(数据总量:1,866,826,092)',
+                            weight: 1,
+                            value: 12,
+                            name: '所属'
+                        },
+                        {source: '内部数据总量:111亿', target: '厅禁毒总队(数据总量:67,522,429)', weight: 1, value: 12, name: '所属'},
+                        {
+                            source: '内部数据总量:111亿',
+                            target: '厅科技信息通讯处(数据总量:1,810,748,593)',
+                            weight: 1,
+                            value: 12,
+                            name: '所属'
+                        },
+
+                        {source: '外部数据总量:14.5亿', target: '贵州省司法厅(数据总量:394,402)', weight: 1, value: 12, name: '所属'},
+                        {source: '外部数据总量:14.5亿', target: '贵州省工商管理局(数据总量:1,225,543)', weight: 1, value: 12, name: '所属'},
+                        {
+                            source: '外部数据总量:14.5亿',
+                            target: '贵州省人力资源和社会保障厅(数据总量:85,767)',
+                            weight: 1,
+                            value: 12,
+                            name: '所属'
+                        },
+                        {source: '外部数据总量:14.5亿', target: '贵州省计生委(数据总量:12,704,769)', weight: 1, value: 12, name: '所属'},
+                        {source: '外部数据总量:14.5亿', target: '贵州省扶贫办(数据总量:7,445,015)', weight: 1, value: 12, name: '所属'},
+                        {source: '外部数据总量:14.5亿', target: '贵州省交通运输厅(数据总量:8,635,650)', weight: 1, value: 12, name: '所属'},
+                        {source: '外部数据总量:14.5亿', target: '成都铁路局(数据总量:285,217,275)', weight: 1, value: 12, name: '所属'},
+                        {
+                            source: '外部数据总量:14.5亿',
+                            target: '中国民航信息网络股份有限公司(数据总量:15,472,206)',
+                            weight: 1,
+                            value: 12,
+                            name: '所属'
+                        },
+                        {
+                            source: '外部数据总量:14.5亿',
+                            target: '贵州高速公路开发总公司(数据总量:1,120,271,660)',
+                            weight: 1,
+                            value: 12,
+                            name: '所属'
+                        },
+
+                        {source: '社会数据总量:0.255亿', target: '贵阳市公安局(数据总量:502,716)', weight: 1, value: 12, name: '所属'},
+                        {source: '社会数据总量:0.255亿', target: '遵义市公安局(数据总量:1,277,053)', weight: 1, value: 12, name: '所属'},
+                        {source: '社会数据总量:0.255亿', target: '六盘水市公安局(数据总量:1,488,603)', weight: 1, value: 12, name: '所属'},
+                        {source: '社会数据总量:0.255亿', target: '毕节市公安局(数据总量:14,337,545)', weight: 1, value: 12, name: '所属'},
+                        {source: '社会数据总量:0.255亿', target: '安顺市公安局(数据总量:259,455)', weight: 1, value: 12, name: '所属'},
+                        {source: '社会数据总量:0.255亿', target: '黔南州公安局(数据总量:7,211,497)', weight: 1, value: 12, name: '所属'},
+                        //  {source: '社会数据总量:0.255亿',target:'黔东南州公安局(数据总量:0)', weight: 1,value:12,name:'所属'},
+                        //  {source: '社会数据总量:0.255亿',target:'铜仁市公安局(数据总量:0)', weight: 1,value:12,name:'所属'},
+                        // {source: '社会数据总量:0.255亿',target:'黔西南州公安局(数据总量:0)', weight: 1,value:12,name:'所属'},
+                        // {source: '社会数据总量:0.255亿',target:'贵安新区(数据总量:0)', weight: 1,value:12,name:'所属'}
+
+                    ]
+                }
+            ]
+        };
+
+
+//        quxian.setOption(option_quxian,true);
+        ybp1.setOption(option_ybp1, true);
+        ybp2.setOption(option_ybp2, true);
+//        pbt.setOption(option_pbt,true);
+        hxt.setOption(option_hxt, true);
+
+        //箭头移动
+        var timeTicket_fly1 = setInterval(function () {
+            var flyer1 = $('<img src="../img/icon/arr70.png" style="width:9px;height: 11px;">');
+            //var flyer2 = $('<img src="images/arr48.png" style="width:9px;height: 10px;">');
+            //var flyer3 = $('<img src="images/arr42.png" style="width:10px;height: 9px;">');
+            flyer1.fly({
+                start: {
+                    left: 350,  //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: 650,  //开始位置（必填）
+                },
+                end: {
+                    left: 500, //结束位置（必填）
+                    top: 600,  //结束位置（必填）
+                    width: 9, //结束时高度
+                    height: 11, //结束时高度
+                },
+                autoPlay: true, //是否直接运动,默认true
+                speed: 0.1, //越大越快，默认1.2
+                //vertex_Rtop:0, //运动轨迹最高点top值，默认20
+                onEnd: function () {
+                    flyer1.remove();
+//                    flyer.fly({
+//                        start:{
+//                            left: 485,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                            top: 163,  //开始位置（必填）
+//                        },
+//                        end:{
+//                            left: 485, //结束位置（必填）
+//                            top: 200,  //结束位置（必填）
+//                            width: 4, //结束时高度
+//                            height: 4, //结束时高度
+//                        },
+//                        autoPlay: true, //是否直接运动,默认true
+//                        speed: 0.3, //越大越快，默认1.2
+//                        vertex_Rtop:0, //运动轨迹最高点top值，默认20
+//                        onEnd: function(){
+//                            flyer.remove();
+//                        } //结束回调
+//                    });
+                } //结束回调
+            });
+        }, 1000);
+        var timeTicket_fly2 = setInterval(function () {
+            var flyer2 = $('<img src="../img/icon/arr48.png" style="width:9px;height: 10px;">');
+
+            flyer2.fly({
+                start: {
+                    left: 600,  //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: 550,  //开始位置（必填）
+                },
+                end: {
+                    left: 832, //结束位置（必填）
+                    top: 450,  //结束位置（必填）
+                    width: 9, //结束时高度
+                    height: 11, //结束时高度
+                },
+                autoPlay: true, //是否直接运动,默认true
+                speed: 0.1, //越大越快，默认1.2
+                //vertex_Rtop:0, //运动轨迹最高点top值，默认20
+                onEnd: function () {
+                    flyer2.remove();
+                } //结束回调
+            });
+        }, 1000);
+        var timeTicket_fly3 = setInterval(function () {
+            var flyer3 = $('<img src="../img/icon/arr42.png" style="width:10px;height:9px;">');
+
+            flyer3.fly({
+                start: {
+                    left: 842,  //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: 378,  //开始位置（必填）
+                },
+                end: {
+                    left: 650, //结束位置（必填）
+                    top: 250,  //结束位置（必填）
+                    width: 9, //结束时高度
+                    height: 11, //结束时高度
+                },
+                autoPlay: true, //是否直接运动,默认true
+                speed: 0.1, //越大越快，默认1.2
+                //vertex_Rtop:0, //运动轨迹最高点top值，默认20
+                onEnd: function () {
+                    flyer3.remove();
+                } //结束回调
+            });
+        }, 1000);
+
+        function formatNumber(str) {
+            if (str.length <= 3) {
+                return str;
+            } else {
+                var s = formatNumber(str.substr(0, str.length - 3)) + ',' + str.substr(str.length - 3);
+                //加工亿以上位置变色
+                if (s.length > 10) {
+                    s = "<span style='color:#fff;font-size:16px;'>" + s.substr(0, s.length - 10) + "</span>&nbsp;" + s.substr(s.length - 10);
+                }
+                return s;
+            }
+        };
+        //数值
+        //服务库
+        $("#d1").html(formatNumber("1523"));
+//
+        <!--模拟数字变化-->
+//        var options = {
+//            useEasing : true,
+//            useGrouping : true,
+//            separator : ',',
+//            decimal : '.',
+//            prefix : '',
+//            suffix : ''
+//        };
+//        var d2=16189143266;
+//        var timeTicket_hc_zfbm=setInterval(function (){
+//            //生成随机加的值
+//            var r=Math.ceil(Math.random()*(2000-10)+10);
+//            //缓冲库总数据变化
+//            var demod2=new CountUp("d2", d2, d2=d2+r, 0, 2, options);
+//            demod2.start();
+//        },5000);
+        $("#d2").html(formatNumber("16189143266"));
+        $("#d3").html(formatNumber("21136465"));
+        //标准库总计
+        $("#d4").html(formatNumber("44"));
+        $("#d5").html(formatNumber("6851628520"));
+        $("#d6").html(formatNumber("17426621"));
+        //缓冲库库总计
+        $("#d7").html(formatNumber("46"));
+        $("#d8").html(formatNumber("17297079805"));
+        $("#d9").html(formatNumber("66997226"));
+        //生产库总计
+        $("#d10").html(formatNumber("170"));
+        $("#d11").html(formatNumber("15287134642"));
+        $("#d12").html(formatNumber("53920873"));
+
+        $("#f1").html(formatNumber("499"));
+        $("#f2").html(formatNumber("1724855"));
+        $("#f3").html(formatNumber("67"));
+        $("#f4").html(formatNumber("10"));
+        $("#f5").html(formatNumber("9"));
+        $("#f6").html(formatNumber("3299"));
+        $("#f7").html(formatNumber("381"));
+        $("#f8").html(formatNumber("18"));
+        $("#f9").html(formatNumber("12"));
+
+
+    })
+</script>
+<script>
+    //宇宙特效
+    "use strict";
+    var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        w = canvas.width = window.innerWidth,
+        h = canvas.height = window.innerHeight,
+
+        hue = 217,
+        stars = [],
+        count = 0,
+        maxStars = 100;//星星数量
+
+    var canvas2 = document.createElement('canvas'),
+        ctx2 = canvas2.getContext('2d');
+    canvas2.width = 100;
+    canvas2.height = 100;
+    var half = canvas2.width / 2,
+        gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+    gradient2.addColorStop(0.025, '#CCC');
+    gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+    gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+    gradient2.addColorStop(1, 'transparent');
+
+    ctx2.fillStyle = gradient2;
+    ctx2.beginPath();
+    ctx2.arc(half, half, half, 0, Math.PI * 2);
+    ctx2.fill();
+
+    // End cache
+
+    function random(min, max) {
+        if (arguments.length < 2) {
+            max = min;
+            min = 0;
+        }
+
+        if (min > max) {
+            var hold = max;
+            max = min;
+            min = hold;
+        }
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function maxOrbit(x, y) {
+        var max = Math.max(x, y),
+            diameter = Math.round(Math.sqrt(max * max + max * max));
+        return diameter / 2;
+        //星星移动范围，值越大范围越小，
+    }
+
+    var Star = function () {
+
+        this.orbitRadius = random(maxOrbit(w, h));
+        this.radius = random(60, this.orbitRadius) / 8;
+        //星星大小
+        this.orbitX = w / 2;
+        this.orbitY = h / 2;
+        this.timePassed = random(0, maxStars);
+        this.speed = random(this.orbitRadius) / 50000;
+        //星星移动速度
+        this.alpha = random(2, 10) / 10;
+
+        count++;
+        stars[count] = this;
+    }
+
+    Star.prototype.draw = function () {
+        var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+            y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+            twinkle = random(10);
+
+        if (twinkle === 1 && this.alpha > 0) {
+            this.alpha -= 0.05;
+        } else if (twinkle === 2 && this.alpha < 1) {
+            this.alpha += 0.05;
+        }
+
+        ctx.globalAlpha = this.alpha;
+        ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+        this.timePassed += this.speed;
+    }
+
+    for (var i = 0; i < maxStars; i++) {
+        new Star();
+    }
+
+    function animation() {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 0.3; //尾巴
+        ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+        ctx.fillRect(0, 0, w, h)
+
+        ctx.globalCompositeOperation = 'lighter';
+        for (var i = 1, l = stars.length; i < l; i++) {
+            stars[i].draw();
+        }
+        ;
+
+        window.requestAnimationFrame(animation);
+    }
+
+    animation();
+</script>
+
+</body>
+</html>

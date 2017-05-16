@@ -2,28 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="671e0a9a-9bac-43ac-85a5-c6acd0f944e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/gjzgxl_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/p1_2_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/res_load_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/res_stype_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/res_stype_process.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/rzqs_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/star.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/topic_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/Police.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/echarts.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/guizhou.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery-1.9.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery.fs.boxer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/tabulous.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/src/screen2.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Police/img/公安厅20170227_MarkMan.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Police/img/icon/1.png" afterPath="$PROJECT_DIR$/Police/img/icon/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Police/index.html" afterPath="$PROJECT_DIR$/Police/src/screen1.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Police/test.html" afterPath="$PROJECT_DIR$/Police/src/test/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/icon/arr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/icon/arr42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/icon/arr48.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/icon/arr70.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/icon/fang.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/page1bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/page2bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/img/page3bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/css/onepage-scroll.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/data/json/energy.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/data/json/life-expectancy.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/countUp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/d3.v3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery-1.12.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery.fly.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery.fly.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery.onepage-scroll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/js/jquery.onepage-scroll.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/src/page1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/src/page2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/src/page3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Police/src/screen3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Police/src/test/test.html" afterPath="$PROJECT_DIR$/Police/src/test.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,121 +40,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="screen1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Police/src/screen1.html">
+      <file leaf-file-name="screen3.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Police/src/screen3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="1054">
+              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#12;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#12;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#13;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#13;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#14;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#14;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#15;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#15;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#16;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#16;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#17;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#17;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#18;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#18;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#19;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#19;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#20;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#20;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#21;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#21;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#22;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#22;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#23;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#23;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#24;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#24;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#25;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#25;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#26;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#26;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#0;n#div#26;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#27;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#28;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#28;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#0;n#div#28;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#29;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#30;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#30;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#p#0;n#div#30;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#31;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#32;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#32;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#34;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#34;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen2.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Police/src/screen2.html">
+      <file leaf-file-name="page3.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Police/src/page3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5695">
-              <caret line="335" column="20" lean-forward="false" selection-start-line="335" selection-start-column="20" selection-end-line="335" selection-end-column="20" />
+            <state relative-caret-position="289">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#6;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#7;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#8;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#9;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1494922586594" expanded="true" signature="394:418" ph="{...}" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1494924011280" expanded="true" signature="24219:24242" ph="..." />
+                <marker date="1494924011280" expanded="true" signature="26029:26052" ph="..." />
+                <marker date="1494924011280" expanded="true" signature="26841:26863" ph="..." />
+                <marker date="1494924011280" expanded="true" signature="27857:27883" ph="..." />
+                <marker date="1494924011280" expanded="true" signature="27926:27932" ph="&amp;nbsp;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>src</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,6 +100,10 @@
       <list>
         <option value="$PROJECT_DIR$/Police/src/screen1.html" />
         <option value="$PROJECT_DIR$/Police/src/screen2.html" />
+        <option value="$PROJECT_DIR$/Police/src/page1.html" />
+        <option value="$PROJECT_DIR$/Police/src/page2.html" />
+        <option value="$PROJECT_DIR$/Police/src/page3.html" />
+        <option value="$PROJECT_DIR$/Police/src/screen3.html" />
       </list>
     </option>
   </component>
@@ -236,11 +173,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -254,7 +187,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -268,12 +205,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echarts.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -287,16 +220,19 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\06-Html\Html\Police\js" />
+      <recent name="E:\06-Html\Html\Police\img\icon" />
       <recent name="E:\06-Html\Html\Police\img" />
-      <recent name="E:\06-Html\Html\Police\src" />
+      <recent name="E:\06-Html\Html\Police\js" />
+      <recent name="E:\06-Html\Html\Police\data\json" />
+      <recent name="E:\06-Html\Html\Police\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\06-Html\Html\Police\src\test" />
       <recent name="E:\06-Html\Html\Police\src" />
+      <recent name="E:\06-Html\Html\Police\src\test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -806,12 +742,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494920572589</updated>
-      <workItem from="1494920574554" duration="2107000" />
+      <workItem from="1494920574554" duration="3519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2107000" />
+    <option name="totallyTimeSpent" value="3519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="766" extended-state="0" />
@@ -871,7 +807,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Police/src/test/test.html">
+    <entry file="file://$PROJECT_DIR$/Police/src/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -998,6 +934,105 @@
             <element signature="n#style#0;n#span#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1494922586594" expanded="true" signature="394:418" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/css/onepage-scroll.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/js/jquery.onepage-scroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/data/json/energy.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/js/jquery-1.12.2.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/js/d3.v3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/js/jquery.fly.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/src/page1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/src/page2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="864" column="49" lean-forward="false" selection-start-line="864" selection-start-column="49" selection-end-line="864" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1494923703513" expanded="true" signature="20711:20733" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/src/page3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1494924011280" expanded="true" signature="24219:24242" ph="..." />
+            <marker date="1494924011280" expanded="true" signature="26029:26052" ph="..." />
+            <marker date="1494924011280" expanded="true" signature="26841:26863" ph="..." />
+            <marker date="1494924011280" expanded="true" signature="27857:27883" ph="..." />
+            <marker date="1494924011280" expanded="true" signature="27926:27932" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Police/src/screen3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

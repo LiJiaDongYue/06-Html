@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公安厅</title>
+    <script src="../js/jquery-1.12.2.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/d3.v3.min.js"></script>
+    <!--数字滚动-->
+    <script src="../js/countUp.js"></script>
+    <!--飞起来-->
+    <script src="../js/jquery.fly.js"></script>
+    <style type="text/css">
+        body {
+            background-image: url("../img/page2bg.jpg");
+            background-repeat: no-repeat;
+            width: 1300px;
+            height: 748px;
+        }
+
+        #n1, #n2, #n3, #n4, #n5, #n6, #n7, #n8, #n9, #n10, #n11, #n12, #n13, #n14, #n15, #n16, #n17, #n18 {
+            color: #00ffff;
+            font-family: '微软雅黑';
+            font-size: 14px;
+        }
+
+        #n1 {
+            width: 100px;
+            position: absolute;
+            top: 126px;
+            left: 215px;
+        }
+
+        #n2 {
+            width: 100px;
+            position: absolute;
+            top: 126px;
+            left: 470px;
+        }
+
+        #n3 {
+            width: 100px;
+            position: absolute;
+            top: 127px;
+            left: 812px;
+        }
+
+        #n4 {
+            width: 100px;
+            position: absolute;
+            top: 127px;
+            left: 1064px;
+        }
+
+        #n5 {
+            width: 100px;
+            position: absolute;
+            top: 270px;
+            left: 155px;
+        }
+
+        #n6 {
+            width: 100px;
+            position: absolute;
+            top: 270px;
+            left: 1120px;
+        }
+
+        #n7 {
+            width: 100px;
+            position: absolute;
+            top: 340px;
+            left: 360px;
+        }
+
+        #n8 {
+            width: 100px;
+            position: absolute;
+            top: 340px;
+            left: 922px;
+        }
+
+        #n9 {
+            width: 100px;
+            position: absolute;
+            top: 385px;
+            left: 170px;
+        }
+
+        #n10 {
+            width: 100px;
+            position: absolute;
+            top: 383px;
+            left: 1133px;
+        }
+
+        #n11 {
+            width: 100px;
+            position: absolute;
+            top: 464px;
+            left: 172px;
+        }
+
+        #n12 {
+            width: 100px;
+            position: absolute;
+            top: 462px;
+            left: 1136px;
+        }
+
+        #n13 {
+            width: 100px;
+            position: absolute;
+            top: 522px;
+            left: 161px;
+        }
+
+        #n14 {
+            width: 100px;
+            position: absolute;
+            top: 539px;
+            left: 437px;
+        }
+
+        #n15 {
+            width: 100px;
+            position: absolute;
+            top: 539px;
+            left: 867px;
+        }
+
+        #n16 {
+            width: 100px;
+            position: absolute;
+            top: 524px;
+            left: 1144px;
+        }
+
+        #n17 {
+            width: 100px;
+            position: absolute;
+            top: 563px;
+            left: 129px;
+        }
+
+        #n18 {
+            width: 100px;
+            position: absolute;
+            top: 564px;
+            left: 1175px;
+        }
+
+        #d1, #d2, #d3, #d4, #d5, #d6, #d7, #d8, #d9, #d10, #d11, #d12 {
+            color: #ffff00;
+            font-family: '微软雅黑';
+            font-size: 14px;
+        }
+
+        #d1 {
+            width: 100px;
+            position: absolute;
+            top: 199px;
+            left: 407px;
+        }
+
+        #d2 {
+            width: 100px;
+            position: absolute;
+            top: 218px;
+            left: 407px;
+        }
+
+        #d3 {
+            width: 100px;
+            position: absolute;
+            top: 237px;
+            left: 407px;
+        }
+
+        #d4 {
+            width: 100px;
+            position: absolute;
+            top: 200px;
+            left: 920px;
+        }
+
+        #d5 {
+            width: 100px;
+            position: absolute;
+            top: 218px;
+            left: 920px;
+        }
+
+        #d6 {
+            width: 100px;
+            position: absolute;
+            top: 237px;
+            left: 920px;
+        }
+
+        #d7 {
+            width: 100px;
+            position: absolute;
+            top: 425px;
+            left: 402px;
+        }
+
+        #d8 {
+            width: 100px;
+            position: absolute;
+            top: 444px;
+            left: 402px;
+        }
+
+        #d9 {
+            width: 100px;
+            position: absolute;
+            top: 463px;
+            left: 402px;
+        }
+
+        #d10 {
+            width: 100px;
+            position: absolute;
+            top: 425px;
+            left: 934px;
+        }
+
+        #d11 {
+            width: 100px;
+            position: absolute;
+            top: 442px;
+            left: 934px;
+        }
+
+        #d12 {
+            width: 100px;
+            position: absolute;
+            top: 460px;
+            left: 934px;
+        }
+    </style>
+    <style type="text/css">
+        #wheel {
+
+            width: 465px;
+            height: 465px;
+
+            position: absolute;
+            top: 78px;
+            left: 453px;
+
+        }
+
+        path {
+            fill-rule: evenodd;
+            stroke: #336699;
+            stroke-width: 2px;
+        }
+
+        .sun path {
+            fill: #4488cc;
+        }
+
+        .planet path {
+            fill: #4488cc;
+        }
+
+        .annulus path {
+            fill: #4488cc;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div id="main" style="width:1300px; height:748px;"></div>
+
+<script type="text/javascript">
+    var myChart1 = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    option1 = {
+        tooltip: {
+            formatter: "{a} <br/>{b} : {c}%"
+        },
+
+        series: [
+            {
+                name: '汇聚率',
+                type: 'gauge',
+                //max:300,
+                center: ['410', '660'],    // 默认全局居中
+                radius: '18%',
+                axisLine: {            // 坐标轴线
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
+                        width: 2,
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisLabel: {            // 坐标轴小标记
+                    textStyle: {       // 属性lineStyle控制线条样式
+                        fontWeight: 'bolder',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisTick: {            // 坐标轴小标记
+                    length: 12,        // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: 'auto',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                splitLine: {           // 分隔线
+                    length: 20,         // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                        width: 3,
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                pointer: {
+                    width: 5,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5
+                },
+                title: {
+                    offsetCenter: [0, '75%'],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        fontStyle: 'italic',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                detail: {
+                    //backgroundColor: 'rgba(30,144,255,0.8)',
+                    // borderWidth: 1,
+                    formatter: '{value}%',
+                    borderColor: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5,
+                    width: 80,
+                    height: 30,
+                    offsetCenter: [5, 70],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        color: '#00ff00',
+                        fontSize: 18
+                    }
+                },
+                data: [{value: 82.29, name: '汇聚率'}]
+            },
+            {
+                name: '标准化率',
+                type: 'gauge',
+                //max:300,
+                center: ['695', '660'],    // 默认全局居中
+                radius: '18%',
+                axisLine: {            // 坐标轴线
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
+                        width: 2,
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisLabel: {            // 坐标轴小标记
+                    textStyle: {       // 属性lineStyle控制线条样式
+                        fontWeight: 'bolder',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisTick: {            // 坐标轴小标记
+                    length: 12,        // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: 'auto',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                splitLine: {           // 分隔线
+                    length: 20,         // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                        width: 3,
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                pointer: {
+                    width: 5,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5
+                },
+                title: {
+                    offsetCenter: [0, '75%'],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        fontStyle: 'italic',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                detail: {
+                    //backgroundColor: 'rgba(30,144,255,0.8)',
+                    // borderWidth: 1,
+                    formatter: '{value}%',
+                    borderColor: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5,
+                    width: 80,
+                    height: 30,
+                    offsetCenter: [5, 70],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        color: '#00ff00',
+                        fontSize: 18
+                    }
+                },
+                data: [{value: 100.00, name: '标准化率'}]
+            },
+            {
+                name: '服务化率',
+                type: 'gauge',
+                //max:300,
+                center: ['980', '660'],    // 默认全局居中
+                radius: '18%',
+                axisLine: {            // 坐标轴线
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
+                        width: 2,
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisLabel: {            // 坐标轴小标记
+                    textStyle: {       // 属性lineStyle控制线条样式
+                        fontWeight: 'bolder',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                axisTick: {            // 坐标轴小标记
+                    length: 12,        // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: 'auto',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                splitLine: {           // 分隔线
+                    length: 20,         // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                        width: 3,
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                pointer: {
+                    width: 5,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5
+                },
+                title: {
+                    offsetCenter: [0, '75%'],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        fontStyle: 'italic',
+                        color: '#fff',
+                        shadowColor: '#fff', //默认透明
+                        shadowBlur: 10
+                    }
+                },
+                detail: {
+                    //backgroundColor: 'rgba(30,144,255,0.8)',
+                    // borderWidth: 1,
+                    formatter: '{value}%',
+                    borderColor: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 5,
+                    width: 80,
+                    height: 30,
+                    offsetCenter: [5, 70],       // x, y，单位px
+                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                        fontWeight: 'bolder',
+                        color: '#00ff00',
+                        fontSize: 18
+                    }
+                },
+                data: [{value: 268.28, name: '服务化率'}]
+            }
+        ]
+    };
+
+    //clearInterval(timeTicket);
+    //clearInterval(timeTicketShengchan);
+    var v1 = 86.61;
+    var v2 = 100.00;
+    var v3 = 268.28;
+    //var timeTicket = setInterval(function (){
+    //option1.series[0].data[0].value = (v1=v1+Math.random()).toFixed(2) - 0;
+    //option1.series[1].data[0].value = (v2=v2+Math.random()).toFixed(2) - 0;
+    //option1.series[2].data[0].value = (v3=v3+Math.random()).toFixed(2) - 0;
+    myChart1.setOption(option1, true);
+    //},2000);
+
+
+    function formatNumber(str) {
+        if (str.length <= 3) {
+            return str;
+        } else {
+            return formatNumber(str.substr(0, str.length - 3)) + ',' + str.substr(str.length - 3);
+        }
+    };
+    //    var shengchan=15287134642;
+    //    var huanchong=17297079805;
+    //    var ziyuan=6851628520;
+    //    var fuwu=16189143266;
+    //    var timeTicketShengchan=setInterval(function (){
+    //        shengchan=shengchan+Math.ceil(Math.random()*(50-5)+5);
+    //        $("#shengchan").html(formatNumber(shengchan.toString()));
+    //    },2000);
+    //    var timeTicket_huanchong=setInterval(function(){
+    //        huanchong=huanchong+Math.ceil(Math.random()*(50-5)+5);
+    //        $("#huanchong").html(formatNumber(huanchong.toString()));
+    //    },4000)
+    //    var timeTicket_ziyuan=setInterval(function(){
+    //        ziyuan=ziyuan+Math.ceil(Math.random()*(50-5)+5);
+    //        $("#ziyuan").html(formatNumber(ziyuan.toString()));
+    //    },8000)
+    //    var timeTicket_fuwu=setInterval(function(){
+    //        fuwu=fuwu+Math.ceil(Math.random()*(50-5)+5);
+    //        $("#fuwu").html(formatNumber(fuwu.toString()));
+    //    },10000)
+</script>
+<div id="wheel"></div>
+<script>
+    //margin
+    var width = 465,
+        height = 465,
+        radius = 35,
+        x = Math.sin(2 * Math.PI / 3),
+        y = Math.cos(2 * Math.PI / 3);
+
+    var offset = 0,
+        speed = 4,
+        start = Date.now();
+
+    var svg = d3.select("#wheel").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(.55)")
+        .append("g");
+
+    var frame = svg.append("g")
+        .datum({radius: Infinity});
+
+    frame.append("g")
+        .attr("class", "annulus")
+        .datum({teeth: 20, radius: -radius * 5, annulus: true})
+        .append("path")
+        .attr("d", gear);
+
+    frame.append("g")
+        .attr("class", "sun")
+        .datum({teeth: 4, radius: radius})
+        .append("path")
+        .attr("d", gear);
+
+    frame.append("g")
+        .attr("class", "planet")
+        .attr("transform", "translate(0,-" + radius * 3 + ")")
+        .datum({teeth: 8, radius: -radius * 2})
+        .append("path")
+        .attr("d", gear);
+
+    frame.append("g")
+        .attr("class", "planet")
+        .attr("transform", "translate(" + -radius * 3 * x + "," + -radius * 3 * y + ")")
+        .datum({teeth: 8, radius: -radius * 2})
+        .append("path")
+        .attr("d", gear);
+
+    frame.append("g")
+        .attr("class", "planet")
+        .attr("transform", "translate(" + radius * 3 * x + "," + -radius * 3 * y + ")")
+        .datum({teeth: 8, radius: -radius * 2})
+        .append("path")
+        .attr("d", gear);
+
+    d3.selectAll("input[name=reference]")
+        .data([radius * 5, Infinity, -radius])
+        .on("change", function (radius1) {
+            var radius0 = frame.datum().radius, angle = (Date.now() - start) * speed;
+            frame.datum({radius: radius1});
+            svg.attr("transform", "rotate(" + (offset += angle / radius0 - angle / radius1) + ")");
+        });
+
+    d3.selectAll("input[name=speed]")
+        .on("change", function () {
+            speed = +this.value;
+        });
+
+    function gear(d) {
+        var n = d.teeth,
+            r2 = Math.abs(d.radius),
+            r0 = r2 - 8,
+            r1 = r2 + 8,
+            r3 = d.annulus ? (r3 = r0, r0 = r1, r1 = r3, r2 + 20) : 20,
+            da = Math.PI / n,
+            a0 = -Math.PI / 2 + (d.annulus ? Math.PI / n : 0),
+            i = -1,
+            path = ["M", r0 * Math.cos(a0), ",", r0 * Math.sin(a0)];
+        while (++i < n) path.push(
+            "A", r0, ",", r0, " 0 0,1 ", r0 * Math.cos(a0 += da), ",", r0 * Math.sin(a0),
+            "L", r2 * Math.cos(a0), ",", r2 * Math.sin(a0),
+            "L", r1 * Math.cos(a0 += da / 3), ",", r1 * Math.sin(a0),
+            "A", r1, ",", r1, " 0 0,1 ", r1 * Math.cos(a0 += da / 3), ",", r1 * Math.sin(a0),
+            "L", r2 * Math.cos(a0 += da / 3), ",", r2 * Math.sin(a0),
+            "L", r0 * Math.cos(a0), ",", r0 * Math.sin(a0));
+        path.push("M0,", -r3, "A", r3, ",", r3, " 0 0,0 0,", r3, "A", r3, ",", r3, " 0 0,0 0,", -r3, "Z");
+        return path.join("");
+    }
+
+    d3.timer(function () {
+        var angle = -(Date.now() - start) * speed,
+            transform = function (d) {
+                return "rotate(" + angle / d.radius + ")";
+            };
+        frame.selectAll("path").attr("transform", transform);
+        frame.attr("transform", transform); // frame of reference
+    });
+</script>
+<div id="n1"><span class="t_num"></span></div>
+<div id="n2"></div>
+<div id="n3"></div>
+<div id="n4"></div>
+<div id="n5"></div>
+<div id="n6"></div>
+<div id="n7"></div>
+<div id="n8"></div>
+<div id="n9"></div>
+<div id="n10"></div>
+<div id="n11"></div>
+<div id="n12"></div>
+<div id="n13"></div>
+<div id="n14"></div>
+<div id="n15"></div>
+<div id="n16"></div>
+<div id="n17"></div>
+<div id="n18"></div>
+
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<div id="d4"></div>
+<div id="d5"></div>
+<div id="d6"></div>
+<div id="d7"></div>
+<div id="d8"></div>
+<div id="d9"></div>
+<div id="d10"></div>
+<div id="d11"></div>
+<div id="d12"></div>
+
+<script>
+    $(function () {
+        <!--飞 闪光 特效-->
+        //数组的大小决定移动改变的次数,比如运动轨迹为(7),则下面五组数组大小为2
+//        var startLeft=new Array(1,2,3); //初始位置left组
+//        var startTop=new Array(1,2,3);  //初始位置top组
+//        var endLeft=new Array(1,2,3);   //结束位置left组
+//        var endTop=new Array(1,2,3);    //结束位置top组
+//        var speed=new Array(0.1,0.2,0.3);  //运动快慢参数组
+        //n代表第几次移动
+        function movePoint(startLeft, startTop, endLeft, endTop, speed, n) {
+            var flyer = $('<img src="../img/icon/fang.gif" style="width:4px;height: 4px;">');
+            var count = startLeft.length;//计数,有几个转折点
+
+            flyer.fly({
+                start: {
+                    left: startLeft[n - 1],  //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: startTop[n - 1],  //开始位置（必填）
+                },
+                end: {
+                    left: endLeft[n - 1], //结束位置（必填）
+                    top: endTop[n - 1],  //结束位置（必填）
+                    width: 4, //结束时高度
+                    height: 4, //结束时高度
+                },
+                autoPlay: true, //是否直接运动,默认true
+                speed: speed[n - 1], //越大越快，默认1.2
+                vertex_Rtop: 0, //运动轨迹最高点top值，默认20
+                onEnd: function () {
+                    flyer.remove();
+                    n++;
+                    if (n <= startLeft.length) {
+                        movePoint(startLeft, startTop, endLeft, endTop, speed, n);
+                    }
+                } //结束回调
+            });
+        }
+
+        var timeTicket_fly1 = setInterval(function () {
+            //政府部门到缓冲库
+            movePoint(new Array(260, 485), new Array(163, 163), new Array(485, 485), new Array(163, 195), new Array(0.1, 0.4), 1);
+            //服务机构到缓冲库
+            //movePoint(new Array(560,505),new Array(163,163),new Array(505,505),new Array(163,200),new Array(0.4,0.5),1);
+            //社会及互联网到缓冲库
+            //公安内部到齿轮
+            movePoint(new Array(321, 338, 492, 546, 546), new Array(302, 288, 288, 242, 217), new Array(338, 492, 546, 546, 570), new Array(288, 288, 242, 217, 217), new Array(0.9, 0.14, 0.3, 0.9, 0.8), 1);
+            //齿轮到标志库
+            movePoint(new Array(792, 815, 815, 840), new Array(217, 217, 243, 262), new Array(815, 815, 840, 865), new Array(217, 243, 262, 262), new Array(0.9, 0.9, 0.6, 0.9), 1);
+            //标准到政府部门
+            movePoint(new Array(875, 875), new Array(190, 163), new Array(875, 1120), new Array(163, 163), new Array(0.8, 0.11), 1);
+            //标准库到公安内部
+            movePoint(new Array(867, 1020), new Array(288, 288), new Array(1020, 1038), new Array(288, 305), new Array(0.15, 0.9), 1);
+            //服务库到物
+            movePoint(new Array(378, 282), new Array(486, 600), new Array(282, 112), new Array(600, 600), new Array(0.13, 0.13), 1);
+            //服务库到地
+            movePoint(new Array(328, 312), new Array(486, 503), new Array(312, 143), new Array(503, 503), new Array(0.6, 0.13), 1);
+            //服务库到人
+            movePoint(new Array(340, 319), new Array(440, 422), new Array(319, 153), new Array(422, 422), new Array(0.6, 0.13), 1);
+            //专题库到关系
+            movePoint(new Array(1000, 1099), new Array(486, 600), new Array(1099, 1266), new Array(600, 600), new Array(0.13, 0.13), 1);
+            //专题库到标识
+            movePoint(new Array(1048, 1070), new Array(486, 503), new Array(1070, 1230), new Array(503, 503), new Array(0.6, 0.13), 1);
+            //专题库到全文
+            movePoint(new Array(1036, 1061), new Array(440, 422), new Array(1061, 1228), new Array(422, 422), new Array(0.6, 0.13), 1);
+//            var flyer = $('<img src="fang.gif" style="width:4px;height: 4px;">');
+//            flyer.fly({
+//                start:{
+//                    left: 260,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                    top: 163,  //开始位置（必填）
+//                },
+//                end:{
+//                    left: 485, //结束位置（必填）
+//                    top: 163,  //结束位置（必填）
+//                    width: 4, //结束时高度
+//                    height: 4, //结束时高度
+//                },
+//                autoPlay: true, //是否直接运动,默认true
+//                speed: 0.1, //越大越快，默认1.2
+//                vertex_Rtop:0, //运动轨迹最高点top值，默认20
+//                onEnd: function(){
+//                    flyer.remove();
+//                    flyer.fly({
+//                        start:{
+//                            left: 485,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                            top: 163,  //开始位置（必填）
+//                        },
+//                        end:{
+//                            left: 485, //结束位置（必填）
+//                            top: 200,  //结束位置（必填）
+//                            width: 4, //结束时高度
+//                            height: 4, //结束时高度
+//                        },
+//                        autoPlay: true, //是否直接运动,默认true
+//                        speed: 0.3, //越大越快，默认1.2
+//                        vertex_Rtop:0, //运动轨迹最高点top值，默认20
+//                        onEnd: function(){
+//                            flyer.remove();
+//                        } //结束回调
+//                    });
+//                } //结束回调
+//            });
+        }, 1000);
+//        var timeTicket_fly2=setInterval(function (){
+//            var flyer = $('<img src="fang.gif" style="width:4px;height: 4px; background: #a6e1ec; position: absolute; top:218px;left:800px;z-index: 999;">');
+//            flyer.fly({
+//                start:{
+//                    left: 800,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                    top: 218,  //开始位置（必填）
+//                },
+//                end:{
+//                    left: 820, //结束位置（必填）
+//                    top: 218,  //结束位置（必填）
+//                    width: 4, //结束时高度
+//                    height: 4, //结束时高度
+//                },
+//                autoPlay: true, //是否直接运动,默认true
+//                speed: 0.6, //越大越快，默认1.2
+//                vertex_Rtop:0, //运动轨迹最高点top值，默认20
+//                onEnd: function(){
+//                    flyer.remove();
+//                    var flyer1 = $('<img src="fang.gif" style="width:4px;height: 4px; background: #a6e1ec; position: absolute; top:218px;left:800px;z-index: 999;">');
+//                    flyer1.fly({
+//                        start:{
+//                            left: 820,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                            top: 218,  //开始位置（必填）
+//                        },
+//                        end:{
+//                            left: 820, //结束位置（必填）
+//                            top: 240,  //结束位置（必填）
+//                            width: 4, //结束时高度
+//                            height: 4, //结束时高度
+//                        },
+//                        autoPlay: true, //是否直接运动,默认true
+//                        speed: 0.5, //越大越快，默认1.2
+//                        vertex_Rtop:20, //运动轨迹最高点top值，默认20
+//                        onEnd: function(){
+//                            flyer1.remove();
+//                            var flyer2 = $('<img src="fang.gif" style="width:4px;height: 4px; background: #a6e1ec; position: absolute; top:218px;left:800px;z-index: 999;">');
+//                            flyer2.fly({
+//                                start:{
+//                                    left: 820,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                                    top: 240,  //开始位置（必填）
+//                                },
+//                                end:{
+//                                    left: 842, //结束位置（必填）
+//                                    top: 263,  //结束位置（必填）
+//                                    width: 4, //结束时高度
+//                                    height: 4, //结束时高度
+//                                },
+//                                autoPlay: true, //是否直接运动,默认true
+//                                speed: 0.5, //越大越快，默认1.2
+//                                vertex_Rtop:20, //运动轨迹最高点top值，默认20
+//                                onEnd: function(){
+//                                    flyer2.remove();
+//                                    var flyer3 = $('<img src="fang.gif" style="width:4px;height: 4px; background: #a6e1ec; position: absolute; top:218px;left:800px;z-index: 999;">');
+//                                    flyer3.fly({
+//                                        start:{
+//                                            left: 842,  //开始位置（必填）#fly元素会被设置成position: fixed
+//                                            top: 263,  //开始位置（必填）
+//                                        },
+//                                        end:{
+//                                            left: 870, //结束位置（必填）
+//                                            top: 263,  //结束位置（必填）
+//                                            width: 4, //结束时高度
+//                                            height: 4, //结束时高度
+//                                        },
+//                                        autoPlay: true, //是否直接运动,默认true
+//                                        speed: 0.5, //越大越快，默认1.2
+//                                        vertex_Rtop:20, //运动轨迹最高点top值，默认20
+//                                        onEnd: function(){
+//                                            flyer3.remove();
+//                                        } //结束回调
+//                                    });
+//                                } //结束回调
+//                            });
+//                        } //结束回调
+//                    });
+//                } //结束回调
+//            });
+//            //$('#fly').play(); //autoPlay: false后，手动调用运动
+//            //$('#fly').destroy();
+//        },1000);
+
+        //箭头动画
+        var timeTicket_fly1 = setInterval(function () {
+            var flyer = $('<img src="../img/icon/arr.png" >');
+            flyer.fly({
+                start: {
+                    left: 640,  //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: 490,  //开始位置（必填）
+                },
+                end: {
+                    left: 734, //结束位置（必填）
+                    top: 490,  //结束位置（必填）
+                    width: 15, //结束时高度
+                    height: 34, //结束时高度
+                },
+                autoPlay: true, //是否直接运动,默认true
+                speed: 0.18, //越大越快，默认1.2
+                vertex_Rtop: 0, //运动轨迹最高点top值，默认20
+                onEnd: function () {
+                    flyer.remove();
+                } //结束回调
+            });
+        }, 800);
+        <!--模拟数字变化-->
+        //clearInterval(timeTicket_hc_zfbm);
+        var options = {
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+            prefix: '',
+            suffix: ''
+        };
+
+        //缓冲库
+        //缓冲库_政府部门
+        $("#n1").html(formatNumber("163242726"));
+        $("#d2").html(formatNumber("17297079805"));
+//        var n1=163242726;
+//        var d2=17297079805;
+//        var timeTicket_hc_zfbm=setInterval(function (){
+//            //生成随机加的值
+//            var r=Math.ceil(Math.random()*(2000-10)+10);
+//            //缓冲库政府部门数据变化
+//            var demon1 = new CountUp("n1", n1, n1=n1+r, 0, 2, options);
+//            demon1.start();
+//            //缓冲库总数据变化
+//            var demod2=new CountUp("d2", d2, d2=d2+r, 0, 2, options);
+//            demod2.start();
+//        },8000);
+        //缓冲库_服务机构
+        $("#n2").html(formatNumber("566032094"));
+        //缓冲库_社会及互联网
+        $("#n5").html(formatNumber("1047888623"));
+        //缓冲库_公安内部
+        $("#n7").html(formatNumber("15519916362"));
+
+        //缓冲库总计
+        $("#d1").html(formatNumber("46"));
+
+        $("#d3").html(formatNumber("66997226"));
+
+        //标准库(资源库)
+        //标准库_服务机构
+        $("#n3").html(formatNumber("520412029"));
+        //标准库_政府部门
+        $("#n4").html(formatNumber("155570608"));
+        //标准库_社会及互联网
+        $("#n6").html(formatNumber("1043362727"));
+        //标准库_公安内部
+        $("#n8").html(formatNumber("5132283156"));
+
+        //服务库
+        //服务库_人
+        $("#n9").html(formatNumber("2055143558"));
+
+        //服务库_地
+        $("#n13").html(formatNumber("89573719"));
+        //服务库_事
+        $("#n14").html(formatNumber("201668458"));
+        //服务库_物
+        $("#n17").html(formatNumber("1706705693"));
+        //服务库_组织
+        $("#n11").html(formatNumber("4071467"));
+        $("#d8").html(formatNumber("16189143266"));
+        var n11 = 4071467;
+        var d8 = 16189143266;
+        var timeTicket_hc_zfbm = setInterval(function () {
+            //生成随机加的值
+            var r = Math.ceil(Math.random() * (2000 - 10) + 10);
+            //缓冲库政府部门数据变化
+            var demon11 = new CountUp("n11", n11, n11 = n11 + r, 0, 2, options);
+            demon11.start();
+            //缓冲库总数据变化
+            var demod8 = new CountUp("d8", d8, d8 = d8 + r, 0, 2, options);
+            demod8.start();
+        }, 20000);
+        //服务库总计
+        $("#d7").html(formatNumber("1523"));
+
+        $("#d9").html(formatNumber("21136465"));
+
+
+        //专题库
+        //专题库_全文
+        $("#n10").html(formatNumber("3767180537"));
+        //专题库_图片
+        $("#n12").html(formatNumber("83776897"));
+        //专题库_车轨
+        $("#n15").html(formatNumber("1047797693"));
+        //专题库_标识
+        $("#n16").html(formatNumber("3311684436"));
+        //专题库_关系
+        $("#n18").html(formatNumber("3921540808"));
+
+
+        //标准库总计
+        $("#d4").html(formatNumber("44"));
+        $("#d5").html(formatNumber("6851628520"));
+        $("#d6").html(formatNumber("17426621"));
+        //服务库总计
+        $("#d7").html(formatNumber("1523"));
+        $("#d8").html(formatNumber("16189143266"));
+        $("#d9").html(formatNumber("21136465"));
+        //专题库总计
+        $("#d10").html(formatNumber("992"));
+        $("#d11").html(formatNumber("12131980371"));
+        $("#d12").html(formatNumber("21136465"));
+    })
+</script>
+</body>
+</html>
