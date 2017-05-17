@@ -587,7 +587,7 @@
         //左2
         //左3
         var left3 = echarts.init(document.getElementById('left3'));
-        left3_option = {
+        left3Option = {
             title: {
                 // text: '某站点用户访问来源',
                 // subtext: '纯属虚构',
@@ -638,7 +638,7 @@
                 }
             ]
         };
-        left3.setOption(left3_option, true);
+        left3.setOption(left3Option, true);
         //右1
         //右2
 //		var right2=echarts.init(document.getElementById('right2'));
@@ -841,7 +841,7 @@
 //		});
         //右3
         var right3 = echarts.init(document.getElementById('right3'));
-        right3_option = {
+        right3Option = {
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -899,7 +899,7 @@
                 }
             ]
         };
-        right3.setOption(right3_option, true);
+        right3.setOption(right3Option, true);
     })
 
     //	//left1
