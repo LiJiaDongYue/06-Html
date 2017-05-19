@@ -126,8 +126,8 @@
             <div class="middle" style="position: relative;">
                 <div class="tabs">
                     <ul id="tabs_menu" style="position: absolute;z-index: 2; right: 0;">
-                        <li><a href="#tabs-1" title="">数据资源目录</a></li>
-                        <li><a href="#tabs-2" title="">数据服务目录</a></li>
+                        <li><a href="#tabs-1" title="">周边道路交通指数</a></li>
+                        <li><a href="#tabs-2" title="">居民详细信息模型</a></li>
                     </ul>
                     <div id="tabs_container">
                         <!--tabs1-->
@@ -136,7 +136,7 @@
                         </div>
                         <!--tabs2-->
                         <div id="tabs-2" style="background: #014782;">
-                            <iframe src="http://www.baidu.com" style="width:1039px; height: 823px;" frameborder="no"
+                            <iframe src="http://localhost:8010/" style="width:1039px; height: 823px;" frameborder="no"
                                     marginwidth="0" marginheight="0" scrolling="no"></iframe>
                         </div>
                         <!--以下可加多个tab,注意事件触发-->
@@ -147,14 +147,14 @@
             <div class="bottom">
                 <span>47类</span>
                 <span>18,653,009,647条</span>
-                <span style="margin-left:90px; ">23,234,124条</span>
+                <!--<span style="margin-left:90px; ">23,234,124条</span>-->
             </div>
         </div>
         <!--右边显示图表-->
         <div class="right">
             <div id="right1" style="width:430px;height:228px; margin: 135px 0 0 47px;"></div>
             <div id="right2" style="width:357px;height:301px; margin: 59px 0 0 100px;">
-                <iframe src="http://www.baidu.com" style="width:357px; height: 301px;" frameborder="no"
+                <iframe src="http://localhost:8010" style="width:357px; height: 301px;" frameborder="no"
                         marginwidth="0" marginheight="0" scrolling="no"></iframe>
             </div>
             <a id="right3-1" href="windows/jigequan.html"
@@ -375,7 +375,7 @@
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['社会资源', '公安内部', '公共服务', '政府部门'],
+                    data: ['水', '电', '气'],
                     textStyle: {
                         color: '#fff'
                     }
@@ -418,25 +418,25 @@
                 ],
                 series: [
                     {
-                        name: '社会资源',
+                        name: '水',
                         type: 'bar',
                         data: displayObj.dataQtyA,
                     },
                     {
-                        name: '公安内部',
+                        name: '电',
                         type: 'bar',
                         data: displayObj.dataQtyB,
                     },
                     {
-                        name: '公共服务',
+                        name: '气',
                         type: 'bar',
                         data: displayObj.dataQtyC,
-                    },
-                    {
-                        name: '政府部门',
-                        type: 'bar',
-                        data: displayObj.dataQtyD,
                     }
+//                    {
+//                        name: '政府部门',
+//                        type: 'bar',
+//                        data: displayObj.dataQtyD,
+//                    }
                 ]
             };
             var left1 = echarts.init(document.getElementById('left1'));
@@ -449,7 +449,7 @@
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['社会资源', '公安内部', '公共服务', '政府部门'],
+                    data: ['水', '电', '气'],
                     textStyle: {
                         color: '#fff'
                     }
@@ -487,26 +487,26 @@
                 ],
                 series: [
                     {
-                        name: '社会资源',
+                        name: '水',
                         type: 'line',
                         data: displayObj.dayQtyA
 
                     },
                     {
-                        name: '公安内部',
+                        name: '电',
                         type: 'line',
                         data: displayObj.dayQtyB
                     },
                     {
-                        name: '公共服务机构',
+                        name: '气',
                         type: 'line',
                         data: displayObj.dayQtyC
-                    },
-                    {
-                        name: '政府部门管理',
-                        type: 'line',
-                        data: displayObj.dayQtyD
                     }
+//                    {
+//                        name: '政府部门管理',
+//                        type: 'line',
+//                        data: displayObj.dayQtyD
+//                    }
                 ]
             };
             var right1 = echarts.init(document.getElementById('right1'));
@@ -588,7 +588,7 @@
                 orient: 'horizontal',
                 x: '170',
                 y: '30',
-                data: ['已使用数据', '未使用数据']
+                data: ['常住人口', '外来人口']
             },
             calculable: true,
             series: [
@@ -627,8 +627,8 @@
                         }
                     },
                     data: [
-                        {value: 1343, name: '已使用数据'},
-                        {value: 310, name: '未使用数据'}
+                        {value: 1343, name: '常住人口'},
+                        {value: 310, name: '外来人口'}
                     ]
                 }
             ]
